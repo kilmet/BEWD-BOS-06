@@ -1,5 +1,6 @@
 ![BEWD_Logo](assets/BEWD_Logo.png)
 
+Hello!
 
 Congratulations on joining us at General Assembly for the __Back-End Web Development__ course! **All your class files can be found here**.
 
@@ -9,7 +10,7 @@ Congratulations on joining us at General Assembly for the __Back-End Web Develop
 
 GitHub is a popular developer tool, and we want you to be familiar with it. GA is all about learning by doing, so in order to learn how to use GitHub we are going to use it every lesson as part of the course.
 
-During the first lesson, you should make a copy of this repo for your own personal use (fork and then clone the repo). 
+During the first lesson, you should make a copy of this repo for your own personal use (fork and then clone the repo).
 
 From the terminal, clone by typing:
 
@@ -23,7 +24,7 @@ In addition, you should create a link to the instructor's copy on GitHub (add an
 From the terminal, add an upstream remote by typing:
 
 ```bash
-git remote add upstream https://github.com/ga-students/BEWD_SYD_2.git 
+git remote add upstream https://github.com/ga-students/BEWD_SYD_2.git
 ```
 
 Verify you added both remotes by typing:
@@ -36,20 +37,20 @@ We know it takes time to get familiar with GitHub so here are a few quick tips:
 
 ###How Do I Get Files From GitHub?
 
-For each lesson the instructor will post slides, exercises and, solution files. To get these files, __pull__ (download) them from the instructor's repository (upstream). 
+For each lesson the instructor will post slides, exercises and, solution files. To get these files, __pull__ (download) them from the instructor's repository (upstream).
 
-From the terminal type: 
+From the terminal type:
 (make sure you are in the correct directory)
 
 ```bash
 git pull upstream master
 ```
-	
+
 ###How Do I Post Files To My Forked Repository on GitHub?
 
-Yes, you may have your files locally on your computer but consider pushing them to the cloud. Here are some benefits. 
+Yes, you may have your files locally on your computer but consider pushing them to the cloud. Here are some benefits.
 
-*	Easily share your homework with the instructional team for grading. 
+*	Easily share your homework with the instructional team for grading.
 *	Share your files with your teammates.
 
 To __push__ files to GitHub:
@@ -74,9 +75,9 @@ See this [link](https://help.github.com/articles/fork-a-repo) for more detailed 
 
 ###How Do I Post Files To GitHub?
 
-Yes, you may have your files locally on your computer but consider pushing them to the cloud. Here are some benefits. 
+Yes, you may have your files locally on your computer but consider pushing them to the cloud. Here are some benefits.
 
-*	Easily share your homework with the instructional team for grading. 
+*	Easily share your homework with the instructional team for grading.
 *	Share your files with your teammates.
 
 To __push__ files to GitHub:
@@ -103,38 +104,38 @@ See this [link](https://help.github.com/articles/fork-a-repo) for more detailed 
 
 To submit homework, you can follow these steps:
 
-1. First, CD into the place where you store your BEWD files. For many of you this is in either your `BEWD_SYD_2 folder`  
+1. First, CD into the place where you store your BEWD files. For many of you this is in either your `BEWD_SYD_2 folder`
 
 ```
 cd BEWD_SYD_2
 ```
 
-2. Copy the homework into your personal directory. You'll want to replace `Secret_Number` and `Brooks Swinnerton` with the homework we're working on and your name respectively:  
+2. Copy the homework into your personal directory. You'll want to replace `Secret_Number` and `Brooks Swinnerton` with the homework we're working on and your name respectively:
 ```
 cp -R Homework/Ruby/Secret_Number Homework/_Brooks_Swinnerton/
 ```
 
-2. CD into the newly created homework directory:  
+2. CD into the newly created homework directory:
 ```
 cd Homework/_Brooks_Swinnerton/Secret_Number/
 ```
 
-3. Make your changes to the homework files in your favorite text editor, e.g. sublime:  
+3. Make your changes to the homework files in your favorite text editor, e.g. sublime:
 ```
 subl .
 ```
 
-4. Add your changes to git  
+4. Add your changes to git
 ```
 git add .
 ```
 
-5. Commit your changes to git  
+5. Commit your changes to git
 ```
 git commit -m "Submitting homework for Secret Number"
 ```
 
-6. Push your changes to GitHub  
+6. Push your changes to GitHub
 ```
 git push origin master
 ```
@@ -160,9 +161,9 @@ Each lesson folder contains
 
 In order to pass this course General Assembly students must:
 
-*	Complete and submit 80% of all course homework assignments. 
+*	Complete and submit 80% of all course homework assignments.
 
-*	Complete and submit the course project (which may include a presentation), earning 	proficiency. See [Project Requirements](Final_Project/final_project_requirements.md). 
+*	Complete and submit the course project (which may include a presentation), earning 	proficiency. See [Project Requirements](Final_Project/final_project_requirements.md).
 
 
 ##TERMINOLOGY
@@ -183,7 +184,7 @@ In order to pass this course General Assembly students must:
 
 
 
-	
+
 
 
 
