@@ -81,6 +81,12 @@ application.
 
 ##Windows Users
 
+###Plan A
+
+ * Rails installer - [Windows Rails installer](http://railsinstaller.org/en)
+
+###Plan B
+
 1. __Install VirtualBox__
   * https://www.virtualbox.org/wiki/Downloads
 
@@ -116,14 +122,6 @@ application.
 #Install Markdown Previewer
   
 Because we will be using GitHub, many of your homework and agenda files will be in.md format. To view them you will need a markdown viewer.
-
-
-##Mac Users 
-
- *	Markdown Preview:		[Mou](http://mouapp.com/) 
-	
-		
-##Windows Users
 
 *	Open Sublime Text
 
