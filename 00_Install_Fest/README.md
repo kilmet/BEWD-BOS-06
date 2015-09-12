@@ -48,6 +48,8 @@ application. It can be found in Applications/Utilities.
 			
 				You should get ruby 2.0.0p0 or higher.
 
+9. Setup sublime terminal command [https://www.sublimetext.com/docs/2/osx_command_line.html](https://www.sublimetext.com/docs/2/osx_command_line.html)
+
 ##Ubuntu Linux Users
 
 Commands that look like ```this``` should be entered into your Terminal
