@@ -24,7 +24,7 @@ In addition, you should create a link to the instructor's copy on GitHub (add an
 From the terminal, add an upstream remote by typing:
 
 ```bash
-git remote add upstream https://github.com/ga-students/BEWD_BOS_05.git
+git remote add upstream git@github.com:ga-students/BEWD-BOS-05.git
 ```
 
 Verify you added both remotes by typing:
