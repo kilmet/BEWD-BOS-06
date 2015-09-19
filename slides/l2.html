@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Lesson 1 - Working Like a Developer</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" alt="GeneralAssemb.ly" title="GeneralAssemb.ly" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---variables-and-conditional-logic" class="anchor" href="#bewd---variables-and-conditional-logic" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Variables and Conditional Logic</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<!-- <li>  Quiz</li> -->
+<li>  Intro to Ruby &amp; irb</li>
+<li>  Variables
+
+<ul>
+<li>  Numbers</li>
+<li>  Strings</li>
+<li>  Booleans</li>
+</ul></li>
+<li>  Method Basics</li>
+<li>  Conditional Logic</li>
+<li>  Lab Time</li>
+</ul>
+
+</section>
+<!-- <section>
+
+<h2><a id="user-content-quiz" class="anchor" href="#quiz" aria-hidden="true"><span class="octicon octicon-link"></span></a>QUIZ</h2>
+
+<ol>
+<li> How do I change directories using the command line?</li>
+<li> What is Git and GitHub?</li>
+<li> How do I add files to git?</li>
+<li> What is a GitHub Repository?</li>
+<li> What is the correct way to push changes to your GitHub repo?
+a. git pull origin master
+b. git commit -m "push to GitHub"
+c. git push origin master</li>
+</ol>
+
+</section> -->
+<section>
+
+<h2><a id="user-content-ruby" class="anchor" href="#ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby</h2>
+
+<h3><a id="user-content-a-programming-language" class="anchor" href="#a-programming-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>A programming language</h3>
+
+<ul>
+<li>  An open source programming language</li>
+<li>  Easy to read and natural to write</li>
+<li>  Created by Yukihiro Matsumoto (aka Matz) with the goal of building a language FOR developers</li>
+<li>  Regularly maintained and evolved (recently reached version 2.0.0)</li>
+</ul>
+
+<div>
+  <a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ruby/ruby_img.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ruby/ruby_img.png" style="max-width:100%;"></a>
+</div>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails" class="anchor" href="#rails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails</h2>
+
+<h3><a id="user-content-a-web-application-framework" class="anchor" href="#a-web-application-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>A web application framework</h3>
+
+<ul>
+<li>  Open source web application framework that is built in Ruby</li>
+<li>  Allows you to create web applications that query a database.</li>
+<li>  Created by DHH (David Heinemer Hansson) to simplify the task of building web applications, with the help of <em>conventions</em></li>
+</ul>
+
+<div>
+  <a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/dhh.jpg" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/dhh.jpg" style="max-width:100%;"></a>
+  <a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/rails.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/rails.png" style="max-width:100%;"></a>
+</div>
+
+</section>
+<section>
+
+<h2><a id="user-content-ruby--rails" class="anchor" href="#ruby--rails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby &amp; Rails</h2>
+
+<h3><a id="user-content-ruby-first" class="anchor" href="#ruby-first" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby first.</h3>
+
+<ul>
+<li>  It will be easier to navigate a Rails project once we have a basic understanding of Ruby.</li>
+<li>  We will first teach you how to write simple Ruby scripts as stand-alone applications</li>
+<li>  Once we have become familiarized with Ruby, we will start building Rails applications (which are essentially groups of Ruby script files that work together)</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-computational-thinking" class="anchor" href="#computational-thinking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Computational Thinking</h2>
+
+<h3><a id="user-content-what-does-it-mean-to-program" class="anchor" href="#what-does-it-mean-to-program" aria-hidden="true"><span class="octicon octicon-link"></span></a>What does it mean to program?</h3>
+
+<p>"Learning about “for” loops is not learning to program, any more than learning about pencils is learning to draw."</p>
+
+<p>–Bret Victor, Learnable Programming</p>
+
+</section>
+<section>
+
+<p><a href="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" target="_blank"><img src="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" alt="GeneralAssemb.ly" data-canonical-src="http://studio.generalassemb.ly/GA_Slide_Assets/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-robot" class="anchor" href="#robot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Robot</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-robot-recap" class="anchor" href="#robot-recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Robot Recap</h2>
+
+<h3><a id="user-content-its-about-changing-how-you-think" class="anchor" href="#its-about-changing-how-you-think" aria-hidden="true"><span class="octicon octicon-link"></span></a>Its about changing how you think</h3>
+
+<ul>
+<li>  Think in logical steps to solve a problem</li>
+<li>  Use Ruby keywords to help solve those problems
+
+<ul>
+<li>  Conditional Logic</li>
+<li>  Iteration</li>
+</ul></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-programming-fundamentals" class="anchor" href="#programming-fundamentals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Programming Fundamentals</h2>
+
+<ul>
+<li>In order to start writing our own Ruby programs, we need to learn some of the basic fundamental tools</li>
+<li>Specifically, we need to learn:
+
+<ul>
+<li>Variables</li>
+<li>Methods</li>
+<li>Conditions</li>
+</ul></li>
+<li>We will first learn the basics on their own, and then try to apply our skills in a simple interactive Ruby script</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-saving-values" class="anchor" href="#saving-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Saving Values</h2>
+
+<h3><a id="user-content-using-variables" class="anchor" href="#using-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Variables</h3>
+
+<ul>
+<li>We can tell our program to remember values for us to use later on</li>
+<li>The action of saving a value to memory is called <strong>assignment</strong></li>
+<li>The entity we use to store the value is called a <strong>variable</strong></li>
+<li>The action of getting the value from a variable is called <strong>accessing</strong> the variable</li>
+<li>We will use all the above techniques to store values into variables, and generate new values using existing variables</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-variables" class="anchor" href="#variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables</h2>
+
+<h3><a id="user-content-storing-values" class="anchor" href="#storing-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storing Values</h3>
+
+<pre><code>&gt;&gt; name = "Steven"
+ =&gt; "Steven"
+&gt;&gt; age = 2013 - 1983
+ =&gt; age # 30
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-data-types" class="anchor" href="#data-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Types</h2>
+
+<ul>
+<li>The types of different values we support include numbers, text, and other more complex ones we'll see in the future</li>
+<li><p>Ruby has its own names for these:</p>
+
+<pre><code>1                       #Fixnum
+1.99                    #Float
+'Hi! String here!'      #String
+"I'm a string too"     #String
+</code></pre></li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" target="_blank"><img src="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" alt="GeneralAssemb.ly" data-canonical-src="http://studio.generalassemb.ly/GA_Slide_Assets/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-variables-1" class="anchor" href="#variables-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables</h2>
+
+<p>Let's learn how to assign and access simple integer and string variables</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-saving-code" class="anchor" href="#saving-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Saving Code</h2>
+
+<h3><a id="user-content-using-methods" class="anchor" href="#using-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Methods</h3>
+
+<ul>
+<li>The same way we can store VALUES in memory by using variables…</li>
+<li>We can store CODE in memory by using methods.</li>
+<li>In other words, we can train the program to 'remember' a set of commands, and give that set of tasks a command name</li>
+<li>Then, we can call that command by name and the program will perform those tasks</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-math-in-ruby" class="anchor" href="#math-in-ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>Math in Ruby</h2>
+
+<h3><a id="user-content-ruby-arithmetic-operators" class="anchor" href="#ruby-arithmetic-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby Arithmetic Operators</h3>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ruby/ruby_arithmetic.jpg" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ruby/ruby_arithmetic.jpg" alt="Ruby Arithmetic" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<p><a href="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" target="_blank"><img src="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" alt="GeneralAssemb.ly" data-canonical-src="http://studio.generalassemb.ly/GA_Slide_Assets/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h2>
+
+<p>Let's learn how to call simple methods, and how to declare our own methods.</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-methods-1" class="anchor" href="#methods-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h2>
+
+<h3><a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li>Methods let us train the program to 'remember' a set of code to perform later</li>
+<li>Making a new method is called <strong>declaring</strong> a method</li>
+<li>Declaring a method does NOT run the method immediately</li>
+<li>If the method takes in variables to use while it is doing its tasks, those are called <strong>parameters</strong></li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" target="_blank"><img src="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" alt="GeneralAssemb.ly" data-canonical-src="http://studio.generalassemb.ly/GA_Slide_Assets/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-teddit---strings" class="anchor" href="#teddit---strings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Teddit - Strings</h2>
+
+<p>Teddit is a news aggregator we will build during this course.</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-more-data-types" class="anchor" href="#more-data-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Data Types</h2>
+
+<h3><a id="user-content-booleans" class="anchor" href="#booleans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Booleans</h3>
+
+<ul>
+<li>Besides strings and integers, Ruby also has a Boolean data type</li>
+<li>A boolean is a simple value that is either <code>true</code> or <code>false</code></li>
+<li>When different data types are compared to each other, the result of that comparison is a boolean result (e.g. 5 &lt; 7 =&gt; true)</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-boolean" class="anchor" href="#boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boolean</h2>
+
+<h3><a id="user-content-logic-operators" class="anchor" href="#logic-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logic Operators</h3>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ruby/logic_operators.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ruby/logic_operators.png" alt="" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<p><a href="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" target="_blank"><img src="https://camo.githubusercontent.com/7b4cbfbb413c7cb408b0953744edc8efd3358f4c/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f436f64655f616c6f6e675f69636f6e5f6d642e706e67" alt="GeneralAssemb.ly" data-canonical-src="http://studio.generalassemb.ly/GA_Slide_Assets/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-booleans-1" class="anchor" href="#booleans-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Booleans</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-variables--data-types" class="anchor" href="#variables--data-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables &amp; Data Types</h2>
+
+<h3><a id="user-content-recap-1" class="anchor" href="#recap-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<p>Data Types</p>
+
+<ul>
+<li>  Fixnum (number without a decimal)</li>
+<li>  Float (number with a decimal)</li>
+<li>  String</li>
+<li>  Booleans</li>
+</ul>
+
+<p>Variables</p>
+
+<ul>
+<li>  Store values</li>
+<li>  Can be passed to methods as parameters</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-conditional-logic" class="anchor" href="#conditional-logic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional Logic</h2>
+
+<h3><a id="user-content-decision-time" class="anchor" href="#decision-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decision Time</h3>
+
+<p>It's either TRUE or FALSE (like booleans)</p>
+
+<p>If you are greater than 18
+you are an adult</p>
+
+<pre><code>if age &gt; 18
+    puts "You are an adult"
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-conditional-logic-1" class="anchor" href="#conditional-logic-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional Logic</h2>
+
+<h3><a id="user-content-multiple-conditions" class="anchor" href="#multiple-conditions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple Conditions</h3>
+
+<pre><code>guess = 7
+if guess &gt; 5
+    puts "Too high!"
+elseif guess &lt; 5
+    puts "Too Low!"
+else
+    puts "You've guessed my hidden digit!"
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-conditional-logic-2" class="anchor" href="#conditional-logic-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional Logic</h2>
+
+<h3><a id="user-content-multiple-conditions-1" class="anchor" href="#multiple-conditions-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple Conditions</h3>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ruby/truth_table.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ruby/truth_table.png" alt="truth_table" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<p><a href="https://camo.githubusercontent.com/ae50ba7e9b38d59da7ca8327f6099e38f09f52de/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f45786572636973655f69636f6e5f6d642e706e67" target="_blank"><img src="https://camo.githubusercontent.com/ae50ba7e9b38d59da7ca8327f6099e38f09f52de/687474703a2f2f73747564696f2e67656e6572616c617373656d622e6c792f47415f536c6964655f4173736574732f45786572636973655f69636f6e5f6d642e706e67" alt="GeneralAssemb.ly" data-canonical-src="http://studio.generalassemb.ly/GA_Slide_Assets/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-lab-time" class="anchor" href="#lab-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Time</h2>
+
+<ul>
+<li>  Conditional Teddit</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<h3><a id="user-content-secret-number" class="anchor" href="#secret-number" aria-hidden="true"><span class="octicon octicon-link"></span></a>Secret Number</h3>
+<!--
+<p>Let's see a demo of Secret Number</p> -->
+
+<ul>
+<li>  HW 1 - Secret Number
+
+<ul>
+<li>  Secret number is a game we will incrementally build for homework during the Ruby portion of the course.
+Players must guess a secret number and your program will provide feedback.
+---</li>
+</ul></li>
+</ul>
+
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

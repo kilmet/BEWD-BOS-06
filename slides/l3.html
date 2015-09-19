@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lesson 3 - Loops and Collections</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img id="user-content-icon" src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---collections--loops" class="anchor" href="#bewd---collections--loops" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Loops &amp; Collections</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+</section>
+
+
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>  Housekeeping</li>
+<li>  Review</li>
+<li>  Iteration - Loops</li>
+<li>  Collections
+
+<ul>
+<li>  Arrays</li>
+<li>  Hashes</li>
+</ul></li>
+<li>  Practice</li>
+</ul>
+
+</section>
+
+<section>
+<h2> HouseKeeping </h2>
+
+</section>
+
+<section>
+
+<a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/">
+<h2> Configure upstream remote repo</h2>
+</a>
+</section>
+
+<section>
+
+<h2>Submitting Homework</h2>
+</section>
+
+<section>
+
+<h2>Review</h2>
+<ul>
+  <li>Variables </li>
+  <li>Conditionals  </li>
+  <li>Methods </li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Story Game</h2>
+<h3>Choose Your Own Adventure</h3>
+
+</section>
+
+<section>
+
+<h2>Loops</h2>
+
+</section>
+
+<section>
+<img src="https://media.giphy.com/media/VWKIxAM2L2CEo/giphy.gif">
+
+</section>
+<section>
+
+<h2><a id="user-content-iteration" class="anchor" href="#iteration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration</h2>
+
+<h3><a id="user-content-repetition" class="anchor" href="#repetition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repetition</h3>
+
+<h3><a id="user-content-repetition-1" class="anchor" href="#repetition-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repetition</h3>
+
+<h3><a id="user-content-repetition-2" class="anchor" href="#repetition-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repetition</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-iteration-ruby-esque-loops" class="anchor" href="#iteration-ruby-esque-loops" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration (Ruby-esque Loops)</h2>
+
+<h3><a id="user-content-times-iterator" class="anchor" href="#times-iterator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Times Iterator</h3>
+
+<pre><code>3.times do
+    puts "going…"
+end
+puts "gone"
+
+# going...
+# going...
+# going...
+# gone
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-iteration-ruby-esque-loops-1" class="anchor" href="#iteration-ruby-esque-loops-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration (Ruby-esque Loops)</h2>
+
+<h3><a id="user-content-upto" class="anchor" href="#upto" aria-hidden="true"><span class="octicon octicon-link"></span></a>.upto</h3>
+
+<pre><code>1.upto(3) do |num|
+    puts "#{num}.going"
+end
+
+# 1. going
+# 2. going
+# 3. going
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-iteration-ruby-esque-loops-2" class="anchor" href="#iteration-ruby-esque-loops-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration (Ruby-esque Loops)</h2>
+
+<h3><a id="user-content-downto" class="anchor" href="#downto" aria-hidden="true"><span class="octicon octicon-link"></span></a>.downto</h3>
+
+<pre><code>3.downto(1) do |guess|
+    puts "You have #{guess} guesses left"
+end
+
+# You have 3 guesses left
+# You have 2 guesses left
+# You have 1 guesses left
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-iteration-ruby-esque-loops-3" class="anchor" href="#iteration-ruby-esque-loops-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration (Ruby-esque Loops)</h2>
+
+
+<ul>
+<li>  X.times</li>
+<li>  upto</li>
+<li>  downto</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-conditional-loops" class="anchor" href="#conditional-loops" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional Loops</h2>
+
+<pre><code>count = 10
+while count &gt; 0
+    puts "Looping"
+    count -=1
+end
+
+count = 10
+until count &lt; 1
+    puts "Looping"
+    count -= 1
+end
+
+</code></pre>
+
+</section>
+<!-- <section>
+
+<h2><a id="user-content-conditional-loops" class="anchor" href="#conditional-loops" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conditional Loops</h2>
+
+<pre><code>count = 10
+
+loop do
+    break if count &lt; 1
+    puts "Looping"
+    count -= 1
+end
+</code></pre>
+
+</section> -->
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-loop" class="anchor" href="#loop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loop</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-iteration-recap" class="anchor" href="#iteration-recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration Recap</h2>
+
+<ul>
+<li>  Iteration in programming allows us to keep our code DRY</li>
+<li>  Loops are used to repeat lines of code</li>
+<li>  Common or Ruby-esque loops are
+
+<ul>
+<li>  times</li>
+<li>  upto</li>
+<li>  downto</li>
+<!-- <li>  .each (we will see in a moment)</li> -->
+<li>  while</li>
+<li>  until</li>
+</ul></li>
+</ul>
+
+</section>
+<section>
+99 bottles of beer
+</section>
+
+<section>
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+<h2>Putting it all together</h2>
+<h3><a id="user-content-quick-fire---fizz-buzz" class="anchor" href="#quick-fire---fizz-buzz" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Fire - Fizz Buzz</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-quick-fire" class="anchor" href="#quick-fire" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Fire</h2>
+
+<h3><a id="user-content-fizz-buzz" class="anchor" href="#fizz-buzz" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fizz Buzz</h3>
+
+<p>TIME : 30 min</p>
+
+<ul>
+<li><p>Write a program that prints numbers from 1 to 100.</p></li>
+<li><p>But for multiples of three print “Fizz” instead of the number </p></li>
+<li><p>and for the multiples of five print “Buzz” instead of the number</p></li>
+<li><p>For numbers which are multiples of both three and five print “FizzBuzz”.</p></li>
+</ul>
+
+</section>
+
+<section>
+
+<h2>Methods?</h2>
+
+</section>
+
+
+<section>
+
+<h2><a id="user-content-collections" class="anchor" href="#collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collections</h2>
+
+<h3><a id="user-content-working-with-collections-in-ruby" class="anchor" href="#working-with-collections-in-ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>Working with Collections in Ruby</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-collections-1" class="anchor" href="#collections-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collections</h2>
+
+<h3><a id="user-content-arrays" class="anchor" href="#arrays" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-arrays-1" class="anchor" href="#arrays-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h2>
+
+<h3><a id="user-content-find-by-index" class="anchor" href="#find-by-index" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lists</h3>
+<img src="http://www.allmyfaves.com/blog/wp-content/uploads/2012/11/bucketlistly-create-your-bucketlist-today.jpg">
+
+</section>
+<section>
+<h2><a id="user-content-arrays-2" class="anchor" href="#arrays-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Arrays</h2>
+
+<pre><code>cities = ["NYC", "LA", "SYD", "LDN"]
+prime_numbers = [2, 3, 5, 7, 11]
+empty_array = []
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-arrays-2" class="anchor" href="#arrays-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding to an array</h2>
+<pre><code>cities.insert(2, "BOS")
+prime_numbers.push(13)
+empty_array << "Hello"
+</code></pre>
+</section>
+<section>
+
+<h2><a id="user-content-arrays-2" class="anchor" href="#arrays-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h2>
+
+<h3><a id="user-content-find-by-index-1" class="anchor" href="#find-by-index-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find by Index</h3>
+
+<pre><code>cities = ["NYC", "LA", "BOS", "SYD", "LDN"]
+cities[0] #"NYC"
+cities[1] #"LA"
+cities[-1] #"LDN"
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-arrays-4" class="anchor" href="#arrays-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h2>
+
+<h3><a id="user-content-find-by-position-1" class="anchor" href="#find-by-position-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find by Position</h3>
+
+<pre><code>my_array = ["NYC", "LA", "SYD", "LDN"]
+my_array.first #"NYC"
+my_array.last #"LDN"
+
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-arrays-5" class="anchor" href="#arrays-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h2>
+
+<h3><a id="user-content-array-methods" class="anchor" href="#array-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array Methods</h3>
+
+<pre><code>name = "Salman"
+name.upcase
+
+my_array = ["NYC", "LA", "BOS", "SYD", "LDN"]
+my_array.reverse
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-arrays-6" class="anchor" href="#arrays-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h2>
+
+<p>to irb!</p>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-arrays-7" class="anchor" href="#arrays-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-arrays-8" class="anchor" href="#arrays-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arrays</h2>
+
+<h3><a id="user-content-recap-1" class="anchor" href="#recap-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li>  A collection of data</li>
+<li>  Can search an array by index or position</li>
+<li>  Arrays are objects and therefore have methods.</li>
+</ul>
+
+</section>
+<section>
+
+<h3><a id="user-content-collections-2" class="anchor" href="#collections-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collections</h3>
+
+<h4><a id="user-content-hashes" class="anchor" href="#hashes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashes</h4>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ruby/labeled_accordian.jpeg" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ruby/labeled_accordian.jpeg" alt="Labeled Accordion" style="max-width:25%;"></a></p>
+
+<ul>
+<li>  Often referred to as dictionaries</li>
+<li>  Each entry in a hash needs a <em>key</em> and a <em>value</em></li>
+<li>  If you access a hash at a specific key, it will return the value at that key</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-hashes-1" class="anchor" href="#hashes-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashes</h2>
+
+<h3><a id="user-content-find-by-key" class="anchor" href="#find-by-key" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Hashes</h3>
+
+<pre><code>
+ga_markets = {"NYC" =&gt; "New York", "BOS" =&gt; "Boston"}
+empty_hash = {}
+</code></pre>
+
+</section>
+
+<section>
+
+<h2><a id="user-content-hashes-1" class="anchor" href="#hashes-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashes</h2>
+
+<h3><a id="user-content-find-by-key" class="anchor" href="#find-by-key" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find by key</h3>
+
+<pre><code>ga_markets = {"NYC" =&gt; "New York", "BOS" =&gt; "Boston"}
+
+ga_markets["NYC"]
+ga_markets["BOS"]
+</code></pre>
+</section>
+
+<section>
+
+<h2><a id="user-content-hashes-2" class="anchor" href="#hashes-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashes</h2>
+
+<h3><a id="user-content-setting-values" class="anchor" href="#setting-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting Values</h3>
+
+<pre><code>ga_markets = {}
+ga_markets["LA"] = "Los Angeles"
+ga_markets["LON"] = "London"
+
+&gt;&gt; {"LA"=&gt;"Los Angeles", "LON"=&gt;"London"}
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-symbols" class="anchor" href="#symbols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbols</h2>
+
+<h3><a id="user-content-new-ruby-type" class="anchor" href="#new-ruby-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>New Ruby type</h3>
+
+<ul>
+<li>  A symbol is a special type of object in ruby, used extensively</li>
+<li>  It is always preceded by a colon</li>
+<li>  Cannot contain spaces or numbers</li>
+<li>  Symbols are used because:
+
+<ul>
+<li>  they are immutable and take less memory</li>
+<li>  they are easier to compare to other objects</li>
+<li>  they are cleaner in syntax</li>
+</ul></li>
+<li>  Examples:
+
+<ul>
+<li>  <code>:hello</code></li>
+<li>  <code>:this_is_a_symbol</code></li>
+</ul></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-symbols-1" class="anchor" href="#symbols-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Symbols</h2>
+
+<h3><a id="user-content-primarily-used-as-keys-for-hashes" class="anchor" href="#primarily-used-as-keys-for-hashes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Primarily used as keys for hashes</h3>
+
+<pre><code>ga_markets = {:NYC =&gt; "New York City"}
+ga_markets[:LA] = "Los Angeles"
+ga_markets
+
+&gt;&gt; {:NYC =&gt; "New York City", :LA =&gt; "Los Angeles"}
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-hash" class="anchor" href="#hash" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hash</h2>
+
+<h3><a id="user-content-methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h3>
+
+<pre><code>user = {:user_name =&gt; "Sam", :email =&gt; "Sam@gmail.com"}
+
+user.keys  #[:user_name, :email]
+user.has_key? :email #true
+
+user.has_value? "Sam" #true
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-hash-1" class="anchor" href="#hash-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hash</h2>
+
+<h3><a id="user-content-ruby-19-alternate-syntax" class="anchor" href="#ruby-19-alternate-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby 1.9+ Alternate Syntax</h3>
+
+<pre><code>user = {:user_name =&gt; "Sam", :email =&gt; "Sam@gmail.com"}
+
+# becomes
+
+user = {user: "Sam", email: "Sam@gmail.com"}
+
+# a little bit more concise
+# more closely matches JSON format
+# considered an 'alternate' syntax, not a replacement
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-collections-3" class="anchor" href="#collections-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collections</h2>
+
+<h3><a id="user-content-array-of-hashes" class="anchor" href="#array-of-hashes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array of Hashes</h3>
+
+<pre><code>users = [
+    {:user =&gt; "Sam Backus", :role =&gt; "Instructor"},
+    {:user =&gt; "Valeria Graffeo", :role=&gt; "TA"}
+    {:user =&gt; "Matt Quinn", :role =&gt; "Producer"}
+]
+
+
+# Alternate syntax for Ruby 1.9+
+
+users = [
+    {user: "Sam Backus", role: "Instructor"},
+    {user: "Valeria Graffeo", role: "TA"},
+    {user: "Matt Quinn", role: "Producer"}
+]
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-iterating-over-collections" class="anchor" href="#iterating-over-collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iterating Over Collections</h2>
+
+<h3><a id="user-content-each" class="anchor" href="#each" aria-hidden="true"><span class="octicon octicon-link"></span></a>.each</h3>
+
+<pre><code>ga_markets = ["NYC", "LA", "SYD", "LDN"]
+
+ga_markets.each {|market| puts market}
+</code></pre>
+
+</section>
+
+
+
+
+<section>
+
+<h2><a id="user-content-working-with-collections" class="anchor" href="#working-with-collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Working With Collections</h2>
+
+<h3><a id="user-content-lets-get-practical" class="anchor" href="#lets-get-practical" aria-hidden="true"><span class="octicon octicon-link"></span></a>Let's get practical</h3>
+
+</section>
+
+
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-lab-time" class="anchor" href="#lab-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Time</h2>
+
+<h3><a id="user-content-teddit-collections" class="anchor" href="#teddit-collections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Magic Collections</h3>
+
+</section>
+
+<section>
+  <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=383227&type=card">
+  <img src="http://s.mtgprice.com/sets/Media_Inserts/img/Knight%20Exemplar.full.jpg">
+  <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=214052&type=card">
+</section>
+
+<section>
+
+<ul>
+<li><p>We need to use a gem to ask for data.</p>
+
+<pre><code>$ gem install rest-client
+</code></pre></li>
+</ul>
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+<h2><a id="user-content-recap-2" class="anchor" href="#recap-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-iterating-over-collections-1" class="anchor" href="#iterating-over-collections-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iterating Over Collections</h3>
+
+</section>
+<section>
+
+<h2><a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=gosu%20getting%20started"> Install Gosu Gem </a></h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<p>Continue work on Secret Number. Due next class (lesson 4)</p>
+
+</section>
+
+<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exit Tickets</h2>
+
+<p>Please fill them out: ga.co/bewdticket</p>
+
+</section>
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
