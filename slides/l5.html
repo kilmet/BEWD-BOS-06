@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Lesson 5 - Classes & Objects</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img id="user-content-icon" src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---classes-and-objects" class="anchor" href="#bewd---classes-and-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Classes and Objects</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>  Creating Classes &amp; Objects</li>
+<li>  Lab Time</li>
+</ul>
+
+</section>
+<!-- <section>
+
+<h2><a id="user-content-from-hashes-to-classes" class="anchor" href="#from-hashes-to-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>From Hashes to Classes</h2>
+
+<h3><a id="user-content-hashes-pros-and-cons" class="anchor" href="#hashes-pros-and-cons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashes pros and cons</h3>
+
+<p>What are some pros and cons of using hashes?</p>
+
+</section> -->
+<section>
+
+<h2><a id="user-content-classes--objects" class="anchor" href="#classes--objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes &amp; Objects</h2>
+
+<ul>
+<li>  What is a class?</li>
+<li>  What is an object?</li>
+<li>  Why/when to use them?</li>
+</ul>
+</section>
+<section>
+
+	<h2> an experiment </h2>
+	remember this 12 digit number
+</section>
+<section>
+	<h2> 3649 8642 7301 </h2>
+</section>
+<section>
+
+	<h2> got it? </h2>
+</section>
+
+<section>
+
+	<h2> one more time </h2>
+	remember this 12 digit number
+</section>
+
+<section>
+	<h2> 1985 2015 1600 </h2>
+</section>
+<section>
+
+	<h2> got it? </h2>
+</section>
+
+<section>
+	<h1> Rule of 7, chunking &amp; abstraction</h1>
+	<img src="http://3.bp.blogspot.com/-tt4hW500ENw/U-3RZyzjjmI/AAAAAAAAHmY/QrffTxz3fnQ/s1600/Chess-Set-43-1.jpeg">
+
+</section>
+<section>
+<ul>
+<li>Classes allow us to create new types.</li>
+<li>They let us customize the Ruby language to create higher level abstractions that better fit our problem domain.</li>
+</ul>
+</section>
+
+<section>
+<h2>Facebook</h2>
+<img src="http://www.sogosurvey.com/static/sogo_resp_images/features-image15/Multi_User_Access.png">
+</section>
+
+<section>
+<h2>IMDB</h2>
+<img src="http://static1.squarespace.com/static/5425e769e4b0f1b39f8abfd9/54264394e4b0c458e6619c66/542ee0dbe4b057379f85755e/1412628060219/?format=1500w">
+</section>
+
+<section>
+<h2>Amazon?</h2>
+
+</section>
+
+<section>
+
+<p><a href="http://www.github.com//generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com//generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-creating-objects" class="anchor" href="#creating-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Objects</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-creating-objects-1" class="anchor" href="#creating-objects-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Objects</h2>
+
+<ul>
+<li><p>Adding variables to a class</p>
+
+<pre><code>
+class Story
+    attr_accessor :title
+end
+
+story = Story.new
+story.title = "Sand angry with flip-flops"
+story.title #=&gt; Returns your value
+</code></pre></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-creating-objects-2" class="anchor" href="#creating-objects-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating Objects</h2>
+
+<ul>
+<li><p>Adding methods to our class</p>
+
+<pre><code>class Story
+    attr_accessor :title, :category, :upvotes
+    def upvote!
+        @upvotes += 1
+    end
+end
+
+story = Story.new
+story.title = "Fruit Flies find fleas facetious"
+story.category = "Turf War"
+story.upvotes = 1
+
+story.upvote!
+story.upvotes #=&gt; 2
+</code></pre>
+
+</li>
+</section>
+<section>
+<h2>Scope</h2>
+
+<pre><code>class Story
+    attr_accessor :title, :category, :upvotes
+    def fix_the_vote! amount
+    	@upvotes += amount
+    end
+end
+
+story = Story.new
+story.title = "Fruit Flies find fleas facetious"
+story.category = "Turf War"
+story.upvotes = 1
+
+story.fix_the_vote!(500)
+story.upvotes #=&gt; 5001
+</code></pre>
+</section>
+
+<!-- <section></li>
+</ul>
+
+<p><a href="http://www.github.com//generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com//generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-apartment" class="anchor" href="#apartment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apartment</h2>
+
+</section> -->
+<section>
+
+<h2><a id="user-content-apartment-1" class="anchor" href="#apartment-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Special Methods</h2>
+
+
+<ul>
+<li>  to_s method is called automatically when an object is interpolated in a string (e.g. with puts)</li>
+<li><p>to_s can be overridden:</p>
+
+<pre><code>class My_Class
+    def to_s
+        "The puts method was called."
+    end
+end
+
+&gt;&gt; my_object = My_Class.new
+&gt;&gt; puts my_object
+The puts method was called.
+=&gt; nil
+</code></pre></li>
+</ul>
+
+</section>
+<section>
+<ul>
+<li>  The initialize method is invoked when the new method is called</li>
+
+<li>
+<pre><code>class Person
+    def initialize name
+        @name = name
+    end
+end
+
+&gt;&gt; my_object = Person.new "Sam"
+&gt;&gt; puts my_object.name
+"Sam"
+=&gt; nil
+</code></pre></li>
+
+</ul>
+
+</section>
+<section>
+
+<h3><a id="user-content-recap-3" class="anchor" href="#recap-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li>  Classes allow us to create abstractions.</li>
+<li>  Classes allow us to keep code DRY.</li>
+<li>  In object oriented programs variables have scope (key scopes are local vs @instance).
+
+<ul>
+<li>  attr_accessor sets up attributes that can be accessed outside the class</li>
+</ul></li>
+
+
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-classes--objects-1" class="anchor" href="#classes--objects-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes &amp; Objects</h2>
+
+<h3><a id="user-content-classes-in-separate-rb-files" class="anchor" href="#classes-in-separate-rb-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes in separate .rb files</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-classes--objects-2" class="anchor" href="#classes--objects-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes &amp; Objects</h2>
+
+<h3><a id="user-content-too-many-classes-in-one-rb-file" class="anchor" href="#too-many-classes-in-one-rb-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Too many classes in one .rb file.</h3>
+
+<pre><code># blt.rb
+class BLT
+    #…
+end
+
+class Bacon
+    #…
+end
+
+class Lettuce
+    #…
+end
+
+class Tomato
+    #…
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-classes--objects-3" class="anchor" href="#classes--objects-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes &amp; Objects</h2>
+
+<h3><a id="user-content-everyone-gets-a-file" class="anchor" href="#everyone-gets-a-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Everyone Gets a File!</h3>
+
+<pre><code># blt.rb
+require_relative 'bacon'
+require_relative 'lettuce'
+require_relative 'tomato'
+
+class BLT
+    #…
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-classes--objects-4" class="anchor" href="#classes--objects-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes &amp; Objects</h2>
+
+<h3><a id="user-content-creating-a-link-between-classes-in-separate-rb-file" class="anchor" href="#creating-a-link-between-classes-in-separate-rb-file" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a link between classes in separate .rb file</h3>
+
+<ul>
+<li>  require</li>
+<li>  require_relative</li>
+</ul>
+
+</section>
+
+<section>
+
+<p><a href="http://www.github.com//generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com//generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-lab-time" class="anchor" href="#lab-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Time</h2>
+
+
+<li> Space Game</li>
+
+</section>
+<section>
+
+<p></p><div id="user-content-resources"><p></p>
+
+<h2><a id="user-content-resources-classes--objects" class="anchor" href="#resources-classes--objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>RESOURCES: Classes &amp; Objects</h2>
+
+<h3><a id="user-content-cheat-sheet" class="anchor" href="#cheat-sheet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cheat Sheet</h3>
+
+<h4><a id="user-content-classes--objects-5" class="anchor" href="#classes--objects-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes &amp; Objects</h4>
+
+<p><strong>Create A Class</strong></p>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">class</span> <span class="pl-en">class_name</span>
+        <span class="pl-c">#variables and method for this class.</span>
+    <span class="pl-k">end</span></pre></div>
+
+<p><strong>Creating Objects</strong></p>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">class</span> <span class="pl-en">GA_course</span>
+        <span class="pl-k">def</span> <span class="pl-en">initialize</span> (<span class="pl-smi">course_name</span>)
+            <span class="pl-smi">@course_name</span> <span class="pl-k">=</span> course_name
+        <span class="pl-k">end</span>
+
+        <span class="pl-k">def</span> <span class="pl-en">announce_course</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on <span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-smi">@course_name</span></span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pds">"</span></span>
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span>
+
+    my_course <span class="pl-k">=</span> <span class="pl-c1">GA_course</span>.<span class="pl-k">new</span>(<span class="pl-s"><span class="pl-pds">"</span>BEWD<span class="pl-pds">"</span></span>)
+    other_course <span class="pl-k">=</span> <span class="pl-c1">GA_course</span>.<span class="pl-k">new</span>(<span class="pl-s"><span class="pl-pds">"</span>UXD<span class="pl-pds">"</span></span>)
+
+    my_course.announce_course
+    other_course.announce_course</pre></div>
+
+<blockquote>
+<p>GA has a course on BEWD</p>
+
+<p>GA has a course on UXD</p>
+</blockquote>
+
+<p><strong>Variable Scope</strong></p>
+
+<table><thead>
+<tr>
+<th>Scope</th>
+<th align="left">Example</th>
+<th align="left">Explanation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Local</td>
+<td align="left">@name</td>
+<td align="left">Available in the same method</td>
+</tr>
+<tr>
+<td>Instance</td>
+<td align="left">name</td>
+<td align="left">Unique value for each instance of a class available from any method in that class.</td>
+</tr>
+<tr>
+<td>Class</td>
+<td align="left">@@name</td>
+<td align="left">Same shared value for all instances of a class, available from any method of that class.</td>
+</tr>
+<tr>
+<td>Global</td>
+<td align="left">$name</td>
+<td align="left">Same shared value for all code running within a single Ruby program.</td>
+</tr>
+</tbody></table>
+
+<h3><a id="user-content-still-feel-lost" class="anchor" href="#still-feel-lost" aria-hidden="true"><span class="octicon octicon-link"></span></a>Still Feel Lost?</h3>
+
+<h4><a id="user-content-catch-up-with-these-resources" class="anchor" href="#catch-up-with-these-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch Up With These Resources</h4>
+
+<ul>
+<li>  What is Object Oriented Programming <a href="http://www.youtube.com/watch?feature=endscreen&amp;v=SS-9y0H3Si8&amp;NR=1">video</a></li>
+<li>  What is Object Oriented Programming <a href="http://ruby.bastardsbook.com/chapters/oops/">Book Chapter</a></li>
+<li>  Introduction to Objects <a href="http://rubymonk.com/learning/books/1-ruby-primer/chapters/6-objects/lessons/35-introduction-to-objects">Ruby Monk</a></li>
+<li>  Building your Own class <a href="http://rubymonk.com/learning/books/1-ruby-primer/chapters/7-classes/lessons/40-building-your-own-class">Ruby Monk</a></li>
+</ul>
+</div>
+				</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img id="user-content-icon" src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---sharing-behavior" class="anchor" href="#bewd---sharing-behavior" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Sharing Behavior</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>Reviewing Scope</li>
+<li>Sharing Code: Inheritance</li>
+<li>Sharing Code: Mixins</li>
+<li>Lab Time</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-scope" class="anchor" href="#scope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope</h2>
+
+<h3><a id="user-content-method-scope" class="anchor" href="#method-scope" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method Scope</h3>
+
+<pre><code>def SuperHero
+    def fly
+  "Here we go!"
+end
+end
+</code></pre>
+
+<p>def fly
+    "I can't."
+  end</p>
+
+<pre><code>&gt;&gt; superman = SuperHero.new
+</code></pre>
+
+<blockquote>
+<blockquote>
+<p>superman.fly
+  =&gt; "Here we go!"
+fly
+  =&gt; "I can't."</p>
+</blockquote>
+</blockquote>
+
+</section>
+<!-- <section>
+
+<h2><a id="user-content-scope-1" class="anchor" href="#scope-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope</h2>
+
+<h3><a id="user-content-class-methods" class="anchor" href="#class-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class Methods</h3>
+
+<ul>
+<li>You don't need an instance to call a class method</li>
+<li>Below is an example of the SecretNumber class re-implemented to use a class method</li>
+<li><p>BONUS: Go back and re-implement secret number exercise using a class method (HINT: the Game object stores the number, so you dont need a secret number object to do so)</p>
+
+<p>class SecretNumber
+  # gets a random number between 0-9, adds one so it's between 1-10
+  def self.generate
+    rand(10)+1
+  end
+end</p>
+
+<blockquote>
+<blockquote>
+<h2><a id="user-content-number--secretnumbergenerate" class="anchor" href="#number--secretnumbergenerate" aria-hidden="true"><span class="octicon octicon-link"></span></a>number = SecretNumber.generate</h2>
+</blockquote>
+</blockquote></li>
+</ul>
+
+<h2><a id="user-content-class-methods-1" class="anchor" href="#class-methods-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class Methods</h2>
+
+<h3><a id="user-content-knowing-self" class="anchor" href="#knowing-self" aria-hidden="true"><span class="octicon octicon-link"></span></a>Knowing Self</h3>
+
+<ul>
+<li>  self keyword is used when definining a method name to indicate a class method</li>
+<li>self is also used INSIDE a method definition to indicate the current object</li>
+<li>a common use of self is to call the current objects methods (such as one of its attr_accessors)</li>
+<li>below, self is used to indicate that 'generate_random_story' is a class method</li>
+<li><p>in addition, self is then used to call the "stories" attr_accessor method on the NewsPaper instance (an attr_accessor getter method returns the instance variable e.g. @stories)</p>
+
+<pre><code>class NewsPaper
+</code></pre>
+
+<p>attr_accessor :stories</p>
+
+<pre><code>    def self.generate_random_story
+        "This random event happened on day #{rand(28)} of this month."
+    end
+
+    def add_story(story)
+# the below code is the same as: @stories &lt;&lt; story
+        self.stories &lt;&lt; story
+    end
+end
+</code></pre>
+
+<blockquote>
+<blockquote>
+<p>story = NewsPaper.generate_random_story
+=&gt; "This random event happened on day 20 of this month."
+paper = NewsPaper.new
+paper.add_story(story)
+paper.stories
+=&gt; ["This random event happened on day 20 of this month."]</p>
+</blockquote>
+</blockquote></li>
+</ul>
+
+</section> -->
+<section>
+
+<h2><a id="user-content-sharing-behavior" class="anchor" href="#sharing-behavior" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sharing Behavior</h2>
+
+<h3><a id="user-content-sharing-is-caring" class="anchor" href="#sharing-is-caring" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sharing is Caring</h3>
+
+<ul>
+<li>  Inheritance</li>
+<li>  Mixins</li>
+<!-- <li>  Modules</li> -->
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-inheritance" class="anchor" href="#inheritance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance</h2>
+
+<ul>
+<li>  Share properties &amp; behavior</li>
+<li>  Keeps code DRY</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-inheritance-1" class="anchor" href="#inheritance-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance</h2>
+
+<p><a href="http://www.github.com//generalassembly-studio/BEWD_Curriculum/blob/master/assets/ruby/inheritance_diagram.png" target="_blank"><img src="http://www.github.com//generalassembly-studio/BEWD_Curriculum/raw/master/assets/ruby/inheritance_diagram.png" alt="Inheritance Diagram" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com//generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com//generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-inheritance-2" class="anchor" href="#inheritance-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-inheritance-3" class="anchor" href="#inheritance-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance</h2>
+
+<h3><a id="user-content-glimpse-into-rails" class="anchor" href="#glimpse-into-rails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Glimpse into Rails</h3>
+
+<ul>
+<li><p>Where you'll see it…</p>
+
+<pre><code>class User &lt; ActiveRecord::Base
+end
+</code></pre></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-inheritance-4" class="anchor" href="#inheritance-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance</h2>
+
+<h3><a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li>  One class can inherit the capabilities of another using the <code>&lt;</code> operator.</li>
+<li>  Sub-class inherits from super-class (child class inherits from parent class)</li>
+<li><p>A child can override a parent variable or method by re-using its name
+class.</p></li>
+<li><p>If defined in different physical files, a child must require its parent</p></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-sharing-behavior-1" class="anchor" href="#sharing-behavior-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sharing Behavior</h2>
+
+<h3><a id="user-content-getting-ready-for-rails" class="anchor" href="#getting-ready-for-rails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Ready For Rails</h3>
+
+<ul>
+<li>  The following slides introduce other ways to share behavior.</li>
+<li>  This is an introduction and we will see more when we start Rails.</li>
+<li>  For now lets understand the basics.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-sharing-behavior-2" class="anchor" href="#sharing-behavior-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sharing Behavior</h2>
+
+<h3><a id="user-content-mixins" class="anchor" href="#mixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mixins</h3>
+
+<ul>
+<li>"Mixins" are a facility to import code into a class</li>
+<li>They are used in cases when we don't want to use inheritance
+
+<ul>
+<li>Perhaps we only want a few methods from a small module, not the whole class</li>
+<li>A class may want to mixin many different modules, but you can only inherit from one class</li>
+</ul></li>
+<li>In Ruby, we use Modules to facilitate mixins</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-mixins-2" class="anchor" href="#mixins-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mixins</h2>
+
+<h3><a id="user-content-upvotable-example" class="anchor" href="#upvotable-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upvotable Example</h3>
+
+<pre><code>module Upvotable
+  def upvote!
+    @upvote += 1
+  end
+
+  def downvote!
+    @upvote -= 1
+  end
+end
+
+class Photo
+  attr_reader :photographer, :resolution, :upvotes
+  include Upvotable
+
+  def initialize(photographer, resolution)
+    @photographer = photographer
+    @resolution = resolution
+    @upvotes = 1
+  end
+end
+
+class Story
+  attr_reader :title, :author, :upvotes
+  include Upvotable
+
+  def initialize(title, author)
+    @title = title
+    @author = author
+    @upvotes = 1
+  end
+end
+
+story = Story.new
+story.upvote!
+photo = Photo.new
+photo.downvote!
+</code></pre>
+
+</section>
+<!-- <section>
+
+<h2><a id="user-content-sharing-behavior-3" class="anchor" href="#sharing-behavior-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sharing Behavior</h2>
+
+<h3><a id="user-content-modules" class="anchor" href="#modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules</h3>
+
+<ul>
+<li><p>What if we wanted to have two bat classes.</p>
+
+<pre><code>class Bat
+    def fly!
+        puts "So free.. and blind"
+    end
+end
+
+# Somewhere else in your code
+class Bat
+    def made_of
+        "wood"
+end
+end
+
+slugger = Bat.new
+slugger.fly?!??!
+</code></pre></li>
+</ul>
+
+</section> -->
+<section>
+
+<h2><a id="user-content-inheritance-vs-mixins" class="anchor" href="#inheritance-vs-mixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance vs Mixins</h2>
+
+<h3><a id="user-content-whats-the-difference" class="anchor" href="#whats-the-difference" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's the difference?</h3>
+
+<ul>
+<li>inheritance (class SomeClass &lt; OtherClass) is used to <em>inherit</em> the methods from one class into another class</li>
+<li>include (include SomeModule) is used to <em>import</em> the methods from one module into a class</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-ruby" class="anchor" href="#ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ruby</h2>
+
+<h3><a id="user-content-success" class="anchor" href="#success" aria-hidden="true"><span class="octicon octicon-link"></span></a>Success!</h3>
+
+<ul>
+<li>  Congrats! You're ready to start working with Rails!</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<ul>
+<li>  Midterm due lesson 8.</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com//generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com//generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-lab-time" class="anchor" href="#lab-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Time</h2>
+
+<ul>
+<li>  Midterm</li>
+<li>  Secret Number</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<ul>
+<li>  Midterm due lesson 8.</li>
+</ul>
+
+</section>
+<!-- <section>
+
+<h2><a id="user-content-resources-more-on-modules" class="anchor" href="#resources-more-on-modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>RESOURCES: More on Modules</h2>
+
+<h3><a id="user-content-namespacing" class="anchor" href="#namespacing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Namespacing</h3>
+
+<ul>
+<li>We can define methods/classes with the same name, but namespaced differently</li>
+<li>We would do this if (in example below) we wanted the Bat to behave differently depending on which namespace it belongs to</li>
+<li><p>You will rarely use module namespacing (not at all in this course)</p>
+
+<p>module Animal
+  class Bat
+    def fly!
+      puts "So free.. and blind"
+    end
+  end
+end</p>
+
+<p>Animal::Bat.new</p>
+
+<p>module BaseballUtensils
+  class Bat
+    def made_of
+      "wood"
+    end
+  end
+end</p>
+
+<p>BaseballUtensils::Bat.new</p></li>
+</ul>
+
+</section> -->
+<!-- <section>
+
+<h2><a id="user-content-resources-more-on-modules-1" class="anchor" href="#resources-more-on-modules-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>RESOURCES: More on Modules</h2>
+
+<h3><a id="user-content-namespacing-1" class="anchor" href="#namespacing-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Namespacing</h3>
+
+<p><a href="http://www.github.com//generalassembly-studio/BEWD_Curriculum/blob/master/assets/ruby/module_namespace_diagram.jpg" target="_blank"><img src="http://www.github.com//generalassembly-studio/BEWD_Curriculum/raw/master/assets/ruby/module_namespace_diagram.jpg" alt="http://imulus.com/blog/casey-ohara/coffeescript-namespaces-modules-and-inheritance" style="max-width:100%;"></a></p>
+
+</section> -->
+<section>
+
+<p></p><div id="user-content-resources"><p></p>
+
+<h2><a id="user-content-resources-sharing-behavior" class="anchor" href="#resources-sharing-behavior" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources: Sharing Behavior</h2>
+
+<p>Good code should be reused!</p>
+
+<h3><a id="user-content-cheat-sheet" class="anchor" href="#cheat-sheet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cheat Sheet</h3>
+
+<h4><a id="user-content-load-vs-require-vs-include" class="anchor" href="#load-vs-require-vs-include" aria-hidden="true"><span class="octicon octicon-link"></span></a>load vs. require vs. include</h4>
+
+<p>Why do they all sound the same??!!!!</p>
+
+<ul>
+<li><p>load: inserts a file's contents</p>
+
+<ul>
+<li><p>File can be loaded more than once.</p>
+
+<p><code>load 'config.rb'</code></p></li>
+</ul></li>
+<li><p>require inserts parsed contents: We use it to require a class in another .rb file.</p>
+
+<ul>
+<li><p>File is only required once.</p>
+
+<p><code>require 'config'</code></p></li>
+</ul></li>
+<li><p>include 'mixes in' modules. Use to include modules and mixins.</p>
+
+<pre><code>```include 'my_module'```
+</code></pre></li>
+</ul>
+
+<h4><a id="user-content-inheritance-5" class="anchor" href="#inheritance-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance</h4>
+
+<ul>
+<li>  One class can inherit the capabilities of another using <code>&lt;</code></li>
+<li><p>Sub-class inherits from super-class
+(child class inherits from parent class)</p></li>
+<li><p>If defined in different physical files, a child must require its parent</p></li>
+</ul>
+
+<p>-- lib/person.rb ---</p>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">class</span> <span class="pl-en">Person</span>
+    <span class="pl-k">end</span>
+</pre></div>
+
+<p>--- lib/worker.rb ---</p>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">'</span>lib/person<span class="pl-pds">'</span></span>
+
+    <span class="pl-k">class</span> <span class="pl-en">Worker<span class="pl-e"> &lt; Person</span></span>
+    <span class="pl-k">end</span></pre></div>
+
+<p>Heres a lengthy example:</p>
+
+<ul>
+<li>  Don't repeat yourself (DRY)</li>
+<li>  Don't do this!</li>
+</ul>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">class</span> <span class="pl-en">ScienceSubteddit</span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Science<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Where we blow stuff up for fun<span class="pl-pds">"</span></span>
+        <span class="pl-k">def</span> <span class="pl-en">self.welcome</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>Welcome to the <span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-smi">@@name</span></span><span class="pl-pse"><span class="pl-s1">}</span></span> Subteddit!<span class="pl-pds">"</span></span>
+            puts <span class="pl-smi">@@description</span>
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span>
+
+    <span class="pl-k">class</span> <span class="pl-en">MoviesSubteddit</span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Movies<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Because the Matrix was awesome<span class="pl-pds">"</span></span>
+        <span class="pl-k">def</span> <span class="pl-en">self.welcome</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>Welcome to the <span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-smi">@@name</span></span><span class="pl-pse"><span class="pl-s1">}</span></span> Subteddit!<span class="pl-pds">"</span></span>
+            puts <span class="pl-smi">@@description</span>
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span>
+
+    <span class="pl-k">class</span> <span class="pl-en">SportsSubteddit</span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Sports<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>We have big muscles and we run fast<span class="pl-pds">"</span></span>
+        <span class="pl-k">def</span> <span class="pl-en">self.welcome</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>Welcome to the <span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-smi">@@name</span></span><span class="pl-pse"><span class="pl-s1">}</span></span> Subteddit!<span class="pl-pds">"</span></span>
+            puts <span class="pl-smi">@@description</span>
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span>
+
+    <span class="pl-k">class</span> <span class="pl-en">RubySubteddit</span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Ruby<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Because Python Sucks<span class="pl-pds">"</span></span>
+        <span class="pl-k">def</span> <span class="pl-en">self.welcome</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>Welcome to the <span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-smi">@@name</span></span><span class="pl-pse"><span class="pl-s1">}</span></span> Subteddit!<span class="pl-pds">"</span></span>
+            puts <span class="pl-smi">@@description</span>
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span></pre></div>
+
+<ul>
+<li>  This is a better approach and demonstrates the benefit of using Object Oriented programming.
+
+<ul>
+<li>  News sections inherit from Subteddit.</li>
+</ul></li>
+</ul>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">class</span> <span class="pl-en">Subteddit</span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+        <span class="pl-k">def</span> <span class="pl-en">self.welcome</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>Welcome to the <span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-smi">@@name</span></span><span class="pl-pse"><span class="pl-s1">}</span></span> Subteddit!<span class="pl-pds">"</span></span>
+            puts <span class="pl-smi">@@description</span>
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span>
+
+    <span class="pl-k">class</span> <span class="pl-en">ScienceSubteddit<span class="pl-e"> &lt; Subteddit</span></span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Science<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Where we blow stuff up for fun<span class="pl-pds">"</span></span>
+    <span class="pl-k">end</span>
+
+    <span class="pl-k">class</span> <span class="pl-en">MoviesSubteddit<span class="pl-e"> &lt; Subteddit</span></span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Movies<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Because the Matrix was awesome<span class="pl-pds">"</span></span>
+    <span class="pl-k">end</span>
+
+    <span class="pl-k">class</span> <span class="pl-en">SportsSubteddit<span class="pl-e"> &lt; Subteddit</span></span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Sports<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>We have big muscles and we run fast<span class="pl-pds">"</span></span>
+    <span class="pl-k">end</span>
+
+    <span class="pl-k">class</span> <span class="pl-en">RubySubteddit<span class="pl-e"> &lt; Subteddit</span></span>
+        <span class="pl-smi">@@name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Ruby<span class="pl-pds">"</span></span>
+        <span class="pl-smi">@@description</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Because Python Sucks<span class="pl-pds">"</span></span>
+    <span class="pl-k">end</span></pre></div>
+
+<h4><a id="user-content-mixins-3" class="anchor" href="#mixins-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mixins</h4>
+
+<ul>
+<li>  Include a module in a class to access the module's methods. This also keeps code DRY.</li>
+</ul>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">module</span> <span class="pl-en">MyModule</span>
+        <span class="pl-k">def</span> <span class="pl-en">module_method</span>(<span class="pl-smi">parameters</span>)
+            <span class="pl-k">return</span> parameter
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span></pre></div>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">class</span> <span class="pl-en">MyClass</span>
+        <span class="pl-k">include</span> <span class="pl-c1">MyModule</span>
+    <span class="pl-k">end</span>
+
+
+    my_object <span class="pl-k">=</span> <span class="pl-c1">MyClass</span>.<span class="pl-k">new</span>
+    my_object.module_method</pre></div>
+
+<h4><a id="user-content-modules-1" class="anchor" href="#modules-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modules</h4>
+
+<p>Ruby exposes much core functionality through modules</p>
+
+<p>A commonly used built in module is&nbsp;Math
+The&nbsp;::&nbsp;operator is used to refer to a constant set in a module</p>
+
+<div class="highlight highlight-source-ruby"><pre>    puts <span class="pl-c1">Math</span>.sqrt(<span class="pl-c1">9</span>)</pre></div>
+
+<blockquote>
+<p>3.0</p>
+</blockquote>
+
+<div class="highlight highlight-source-ruby"><pre>    puts <span class="pl-c1">Math</span>::<span class="pl-c1">PI</span></pre></div>
+
+<blockquote>
+<p>3.1415926</p>
+</blockquote>
+
+<ul>
+<li><p>A module is like a class, except</p>
+
+<ul>
+<li>  You cannot create a new instance of a module</li>
+<li>  You cannot extend a module to create a child module</li>
+</ul></li>
+<li><p>Modules are a way to add namespaces</p></li>
+</ul>
+
+<p>Ruby docs have a full list of available modules.</p>
+
+<p><strong>Method Scope</strong></p>
+
+<div class="highlight highlight-source-ruby"><pre>    <span class="pl-k">class</span> <span class="pl-en">GA_course</span>
+        <span class="pl-k">def</span> <span class="pl-en">initialize</span> (<span class="pl-smi">course_name</span>)
+            <span class="pl-smi">@course_name</span> <span class="pl-k">=</span> course_name
+        <span class="pl-k">end</span>
+
+        <span class="pl-k">def</span> <span class="pl-en">announce_course</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on <span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-smi">@course_name</span></span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pds">"</span></span>
+        <span class="pl-k">end</span>
+
+        <span class="pl-k">def</span> <span class="pl-en">self.announce_courses</span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on BEWD<span class="pl-pds">"</span></span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on FEWD<span class="pl-pds">"</span></span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on CSF<span class="pl-pds">"</span></span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on DAT<span class="pl-pds">"</span></span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on UXD<span class="pl-pds">"</span></span>
+            puts <span class="pl-s"><span class="pl-pds">"</span>GA has a course on PDM<span class="pl-pds">"</span></span>
+        <span class="pl-k">end</span>
+    <span class="pl-k">end</span>
+
+    my_course <span class="pl-k">=</span> <span class="pl-c1">GA_course</span>.<span class="pl-k">new</span>(<span class="pl-s"><span class="pl-pds">"</span>BEWD<span class="pl-pds">"</span></span>)
+    my_course.announce_course <span class="pl-c">#</span>
+    <span class="pl-c1">GA_Course</span>.announce_courses</pre></div>
+
+<blockquote>
+<p>GA has a course on BEWD</p>
+
+<p>GA has a course on BEWD
+GA has a course on FEWD
+GA has a course on CSF
+GA has a course on DAT
+GA has a course on UXD
+GA has a course on PDM</p>
+</blockquote>
+
+<h3><a id="user-content-still-feel-lost" class="anchor" href="#still-feel-lost" aria-hidden="true"><span class="octicon octicon-link"></span></a>Still Feel Lost?</h3>
+
+<p>Its ok, we will see these terms again in Rails, but you can also,</p>
+
+<h4><a id="user-content-catch-up-with-these-resources" class="anchor" href="#catch-up-with-these-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch Up With These Resources</h4>
+
+<ul>
+<li>  Working with Enumerables <a href="http://vimeo.com/gatv/review/67752032/67e8f877bb">Video</a>
+
+<ul>
+<li>  password =&gt; BEWD_GA</li>
+</ul></li>
+<li>  <a href="http://marakana.com/bookshelf/ruby_tutorial/modules.html">Modules</a></li>
+<li>  <a href="http://samwho.co.uk/blog/2011/09/12/ruby-mixins/">Mixins</a></li>
+</ul>
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
