@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lesson 7 - Tour of Rails</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+
+
+
+
+
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" alt="GeneralAssemb.ly" title="GeneralAssemb.ly" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---my-first-rails-app" class="anchor" href="#bewd---my-first-rails-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - My First Rails App</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+
+
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>  Intro To Rails</li>
+<li>  Rails &amp; My Browser</li>
+<li>  Structure Of A Rails App</li>
+<li>  Getting Ready With Rails 4</li>
+<li>  Scaffold Application</li>
+<li>  Lab Time</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails" class="anchor" href="#rails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails</h2>
+
+<h3><a id="user-content-a-bit-about-rails" class="anchor" href="#a-bit-about-rails" aria-hidden="true"><span class="octicon octicon-link"></span></a>A bit about Rails</h3>
+
+<p>Rails is an open source web framework written in Ruby.</p>
+
+<p>Created by David Heinemeier Hansson (@dhh) in 2004 as an extraction of the reusable components of Basecamp.</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails-1" class="anchor" href="#rails-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails</h2>
+
+<h3><a id="user-content-framework-defined" class="anchor" href="#framework-defined" aria-hidden="true"><span class="octicon octicon-link"></span></a>Framework defined</h3>
+
+<p>Rails is a framework for building websites.</p>
+
+<p>It solves the most common problems faced when building websites.</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails-2" class="anchor" href="#rails-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails</h2>
+
+<h3><a id="user-content-websites-built-on-rails" class="anchor" href="#websites-built-on-rails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Websites built on Rails</h3>
+
+<ul>
+<li>  Groupon</li>
+<li>  GitHub</li>
+<li>  Hulu</li>
+<li>  Funny or Die</li>
+<li>  <strong>General Assembly</strong></li>
+</ul>
+
+<p>See more <a href="http://www.developerdrive.com/2011/09/20-best-sites-built-with-ruby-on-rails/">here</a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails--my-browser" class="anchor" href="#rails--my-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails &amp; My Browser</h2>
+
+<h3><a id="user-content-the-internet" class="anchor" href="#the-internet" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Internet</h3>
+
+<ul>
+<li>  To understand Rails we need to understand the Internet.</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-draw-the-internet" class="anchor" href="#draw-the-internet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Draw The Internet</h2>
+
+<ul>
+<li>  Get into groups of 2-3.</li>
+<li>  Draw a diagram that represents your understanding of how the Internet works. Here are a couple of questions to consider as you draw.
+
+<ul>
+<li>  What happens when you hit enter on your address bar?</li>
+<li>  Where does a website live?</li>
+</ul></li>
+</ul>
+
+<p>We will discuss how the internet works at a high level next.</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails--my-browser-1" class="anchor" href="#rails--my-browser-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails &amp; My Browser</h2>
+
+<h3><a id="user-content-the-internet-1" class="anchor" href="#the-internet-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Internet</h3>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/internet.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/internet.png" alt="Internet Diagram" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails--my-browser-2" class="anchor" href="#rails--my-browser-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails &amp; My Browser</h2>
+
+<h3><a id="user-content-the-requestresponse-cycle" class="anchor" href="#the-requestresponse-cycle" aria-hidden="true"><span class="octicon octicon-link"></span></a>The request/response cycle</h3>
+
+<ul>
+<li><p>HTTP (the protocol that drives the Web) communicates via input/output just like the terminal.</p></li>
+<li><p>Browsers send input (the request) and the server returns output (the response).</p></li>
+</ul>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/response_request.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/response_request.png" alt="Request Response Diagram" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-rails-4" class="anchor" href="#rails-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails 4</h2>
+
+<h3><a id="user-content-are-you-ready" class="anchor" href="#are-you-ready" aria-hidden="true"><span class="octicon octicon-link"></span></a>Are You Ready?</h3>
+
+<pre><code>$   gem install rails --version 4.0.0 --no-ri --no-rdoc
+$   rails -v
+</code></pre>
+
+<ul>
+<li>If you don't see version 4 returned, raise your hand</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-scaffold-books" class="anchor" href="#scaffold-books" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scaffold Books</h2>
+
+</section>
+<section>
+
+<h3><a id="user-content-structure-of-a-rails-app" class="anchor" href="#structure-of-a-rails-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure Of A Rails App</h3>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/app_structure.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/app_structure.png" alt="App Structure" style="max-width:100%;"></a></p>
+
+<ul>
+<li><p>Most of your application logic belongs to app/ (including css and javascript files)</p></li>
+<li><p>public/ contains static files that are directly available</p></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-structure-of-a-rails-app-1" class="anchor" href="#structure-of-a-rails-app-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure Of A Rails App</h2>
+
+<h3><a id="user-content-the-app-folder" class="anchor" href="#the-app-folder" aria-hidden="true"><span class="octicon octicon-link"></span></a>The app folder</h3>
+
+<p>Most of the code we write belongs somewhere in the <code>app</code> folder.</p>
+
+<ul>
+<li><code>app/assets</code>: CSS, JavaScript and images used in templates.</li>
+<li><code>app/controllers</code>: Classes which gather data and render responses for specific
+requests.</li>
+<li><code>app/helpers</code>: Utility modules which define methods for templates to use.</li>
+<li><code>app/mailers</code>: Classes that define various outbound emails in your app.</li>
+</ul>
+
+</section>
+
+<section>
+
+<h2><a id="user-content-structure-of-a-rails-app-1" class="anchor" href="#structure-of-a-rails-app-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure Of A Rails App</h2>
+
+<h3><a id="user-content-the-app-folder" class="anchor" href="#the-app-folder" aria-hidden="true"><span class="octicon octicon-link"></span></a>The app folder</h3>
+
+<ul>
+<li><code>app/models</code>: Classes defining your data models (e.g.. User, Comment, Post).</li>
+<li><code>app/views</code>: Templates called by your controllers to render HTML.</li>
+<li><code>app/views/layouts</code>: Master templates to be used throughout your website.</li>
+</ul>
+
+</section>
+
+
+<section>
+
+<h2><a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-make-an-app" class="anchor" href="#make-an-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Make an app</h3>
+
+<pre><code>$ rails new my_app_name
+$ ls
+$ cd my_app_name
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-1" class="anchor" href="#recap-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-create-the-tables" class="anchor" href="#create-the-tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create The Table(s)</h3>
+
+<pre><code>$ rake db:migrate
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-2" class="anchor" href="#recap-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-start-the-server" class="anchor" href="#start-the-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Start The Server</h3>
+
+<pre><code>$ rails s
+</code></pre>
+
+<ul>
+<li>Go to localhost:3000/books in browser</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-3" class="anchor" href="#recap-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-scaffolding" class="anchor" href="#scaffolding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scaffolding</h3>
+
+<pre><code>$ rails generate scaffold Book author:string title:string abstract:text
+</code></pre>
+
+<ul>
+<li>  Scaffolds provide the bare necessities for creating, editing, deleting, and viewing a resource. Otherwise known as CRUD.</li>
+<li>  Scaffolds are great when getting started with Rails or a new app, but are generally not used in production websites.</li>
+<li>  Scaffolding is not considered best practice, and should generally only be used initially as a means of learning (the primary drawback of using them is that you generate lots of code that you don't need, and it's difficult to undo).</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-hosting-public-files" class="anchor" href="#hosting-public-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hosting Public Files</h2>
+
+<h3><a id="user-content-rails-can-be-a-simple-file-server-too" class="anchor" href="#rails-can-be-a-simple-file-server-too" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rails can be a simple file server too!</h3>
+
+<p>Add a static file to the 'public' folder.</p>
+
+<ul>
+<li>Create the file <code>public/hello.txt</code></li>
+<li>Start your server with <code>$ rails s</code></li>
+<li>Visit http://localhost:3000/hello.txt</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<p>Final project proposal - Due Lesson 9</p>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-lab-time" class="anchor" href="#lab-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Time</h2>
+
+<ul>
+<li>  Create a new application called User_Scaffold.</li>
+<li>  The resource should be <code>User</code> and it should have the attributes:
+
+<ul>
+<li>  First Name</li>
+<li>  Last Name</li>
+<li>  Age</li>
+<li>  Email</li>
+</ul></li>
+</ul>
+
+<p><strong>BONUS!</strong> Remove the ability to edit after a user has been created</p>
+
+<p><em>Hint:</em> app/views</p>
+
+</section>
+<section>
+
+<p></p><div id="user-content-resources"><p></p>
+
+<h2><a id="user-content-resources-my-first-rails-application" class="anchor" href="#resources-my-first-rails-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources: My First Rails Application</h2>
+
+<h3><a id="user-content-cheat-sheet" class="anchor" href="#cheat-sheet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cheat Sheet</h3>
+
+<h4><a id="user-content-what-is-a-framework" class="anchor" href="#what-is-a-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is a Framework?</h4>
+
+<p>...a software framework is an abstraction in which software providing generic functionality can be selectively changed by additional user written code.</p>
+
+<p>‐ via Wikipedia
+You use libraries, frameworks use you.</p>
+
+<h4><a id="user-content-creating-a-new-rails-app" class="anchor" href="#creating-a-new-rails-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a new Rails app</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ rails new app_name</pre></div>
+
+<ul>
+<li>  This will create a project folder and some useful files for you.</li>
+<li>  Don't forget to cd into your new directory before you move on.</li>
+</ul>
+
+<h4><a id="user-content-running-the-server" class="anchor" href="#running-the-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running the server.</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ rails server</pre></div>
+
+<ul>
+<li>Now you can visit http://localhost:3000/ and see your app.</li>
+</ul>
+
+<h3><a id="user-content-tips--tricks" class="anchor" href="#tips--tricks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips &amp; Tricks</h3>
+
+<ul>
+<li><a href="http://discover-devtools.codeschool.com/">Learn how to use your browser for web development</a></li>
+</ul>
+
+<h3><a id="user-content-still-feel-lost" class="anchor" href="#still-feel-lost" aria-hidden="true"><span class="octicon octicon-link"></span></a>Still Feel Lost?</h3>
+
+<p>This lesson we really want you to have a general understanding of how the internet works. Here are some resources to help you dive deeper and review what you learned in class.</p>
+
+<h4><a id="user-content-catch-up-with-these-resources" class="anchor" href="#catch-up-with-these-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch Up With These Resources</h4>
+
+<ul>
+<li><a href="http://computer.howstuffworks.com/internet/basics/internet.htm">Article</a> by How Stuff Works.</li>
+<li>Five minute <a href="http://www.youtube.com/watch?v=7_LPdttKXPc">video</a> on how the internet works.</li>
+<li>A lengthy <a href="http://www.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm">chapter</a> from standford.edu.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
