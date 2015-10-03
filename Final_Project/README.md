@@ -22,9 +22,9 @@ To pass projects must include:
 
 -	User accounts. Your application must utilize user accounts.
 
-- 	Security Features. Login credentials must be validated before users can gain access to your application. 
+- 	Security Features. Login credentials must be validated before users can gain access to your application.
 
-- 	Hosted. No need to pay for hosting services, you can use GitHub and Heroku. 
+- 	Hosted. No need to pay for hosting services, you can use GitHub and Heroku.
 
 - 	Ruby Gems. Use a Ruby Gem (not the Rails defaults, obviously they don't count). Some ideas to look into: devise or paper clip, carrier wave.
 
@@ -37,7 +37,7 @@ To pass projects must include:
 
 |Due Date| Deliverable|
 |:-------|:-----------|
-|Week 4|Project Proposal Due|
+|Week 5|Project Proposal Due|
 |Week 8| User Stories, Models and Associations List|
 |Week 10| Final version|
 
@@ -46,7 +46,7 @@ To pass projects must include:
 Your project will be deployed to Heroku and your source code will be submitted via GitHub. You will share the link for both with your instructor.
 
 ##BEST PRACTICES
-Your instructor and T.As will provide feedback on how well you execute best practices. Even though it is not part of the requirements, you should keep these in mind. 
+Your instructor and T.As will provide feedback on how well you execute best practices. Even though it is not part of the requirements, you should keep these in mind.
 
 * Clean And Readable Code. Instructors and T.As should be able to read and follow code easily.  Maintain clean and readable code including: consistent indentation, code commenting (e.g. when closing ```<div>``` tags, demarcating sections of code, describing possibly ambiguous code choices) and use proper and consistent naming conventions.
 
@@ -54,4 +54,4 @@ Your instructor and T.As will provide feedback on how well you execute best prac
 
 
 ##GRADING
-A project is considered satisfactory if it meets all core requirements. Anything extra is above satisfactory. 
+A project is considered satisfactory if it meets all core requirements. Anything extra is above satisfactory.
