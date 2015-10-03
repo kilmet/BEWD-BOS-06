@@ -1,0 +1,10 @@
+<h1>Welcome to the Secret Number Game! </h1>
+
+<p> To win, guess the right number! </p>
+
+<p> Choose carefully... you only get one guess!</p>
+
+<!-- this is a comment! -->
+<% (1..5).each do |number| %>
+  <%= link_to(number, "/secret_number/"+number.to_s ) %>
+<% end %>
