@@ -16,7 +16,7 @@ We will build a Rails app for RetFlix during lesson 9 & 10. Each lesson we will 
 
 Pairing is sharing, and happy coding :)
 
-##(Lab Time) Movie Model: 60 min
+##(Lab Time) Movie Model: part 1 -  60 min
 
 ####Task Instructions
 
