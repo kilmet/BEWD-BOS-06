@@ -16,20 +16,6 @@ We will build a Rails app for RetFlix during lesson 9 & 10. Each lesson we will 
 
 Pairing is sharing, and happy coding :)
 
-##Quick Fire: 20 min
-
-####Task Instructions
-
-*	Create a new application called Movie_App.
-
-*	Generate a Movies controller with an index action.
-
-*	Set your root route to the index page.
-
-*	Index.html.erb, welcomes users to the movie app. (Welcome to RetFlix! See our collection of movies below).
-
-
-
 ##(Lab Time) Movie Model: 60 min
 
 ####Task Instructions
@@ -37,6 +23,14 @@ Pairing is sharing, and happy coding :)
 Add to your Movie_app
 
 *	Pair Program.
+	
+*	Create a new application called Movie_App.
+
+*	Generate a Movies controller with an index action.
+
+*	Set your root route to the index page.
+
+*	Index.html.erb, welcomes users to the movie app. (Welcome to RetFlix! See our collection of movies below).
 
 *	Generate a Movie model with title, description and year_released attributes.
 
