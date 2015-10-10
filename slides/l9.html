@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lesson 9 - Active Record Models</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" alt="GeneralAssemb.ly" title="GeneralAssemb.ly" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---models--active-record" class="anchor" href="#bewd---models--active-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Models &amp; Active Record</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>  Review
+
+<ul>
+<li>  Quick Fire - Movies App</li>
+</ul></li>
+<li>  Models
+
+<ul>
+<li>  Databases</li>
+<li>Generating Models</li>
+<li>  Migrations</li>
+<li>  seeds.rb</li>
+</ul></li>
+<li>  Active Record</li>
+<li>  Lab Time</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-review" class="anchor" href="#review" aria-hidden="true"><span class="octicon octicon-link"></span></a>Review</h2>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h3><a id="user-content-movies-app---quick-fire" class="anchor" href="#movies-app---quick-fire" aria-hidden="true"><span class="octicon octicon-link"></span></a>Movies App - Quick Fire</h3>
+
+<h4><a id="user-content-time-20min" class="anchor" href="#time-20min" aria-hidden="true"><span class="octicon octicon-link"></span></a>Time: 20min</h4>
+
+<a href="https://github.com/generalassembly-studio/BEWD_Curriculum/blob/master/09_Models_Active_Record/starter_code/Movie_App_part1.md">lab</a>
+
+</section>
+<section>
+
+<h2><a id="user-content-review-1" class="anchor" href="#review-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Review</h2>
+
+<h3><a id="user-content-routes-views-and-controllers" class="anchor" href="#routes-views-and-controllers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Routes, Views and Controllers</h3>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/response_request.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/response_request.png" alt="Request Response Diagram" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+
+<ul>
+<li>  The controller interacts with the Model</li>
+<li>  The controller renders the view, passing it Model data (using instance variables)</li>
+<li>  The view and the model do not interact (need the controller)</li>
+</ul>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/mvc_diagram.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/mvc_diagram.png" alt="MVC Diagram" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-models" class="anchor" href="#models" aria-hidden="true"><span class="octicon octicon-link"></span></a>Models</h2>
+
+<h3><a id="user-content-talking-to-the-database" class="anchor" href="#talking-to-the-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Talking to the database</h3>
+
+<ul>
+<li>  Models are needed to talk to the database</li>
+<li>  We need to use the database to store <em>persistent</em> data (lives beyond a request lifecycle)</li>
+<li>  Models simplify the task of working with a database</li>
+<li>  Each model is used to talk to a specific table (e.g. User model for Users table)</li>
+<li>  Rails models have special functionality to allow you to easily lookup data from the table, or make changes without having to use SQL directly*</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-database" class="anchor" href="#database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database</h2>
+
+<h3><a id="user-content-permanent-data" class="anchor" href="#permanent-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Permanent Data</h3>
+
+<ul>
+<li>  Permanent store for data (lives beyond a single request)</li>
+<li>  Designed to handle data at scale (lots of data)</li>
+<li>  Many different databases we can choose from, Rails handles almost all of them.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-database-1" class="anchor" href="#database-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database</h2>
+
+<h3><a id="user-content-standard-data-types" class="anchor" href="#standard-data-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standard data types</h3>
+
+<ul>
+<li>Text</li>
+<li>Numbers</li>
+<li>Dates / Times</li>
+<li>Booleans</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-database-2" class="anchor" href="#database-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database</h2>
+
+<h3><a id="user-content-tables" class="anchor" href="#tables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tables</h3>
+
+<p>Table: A database is made up of a collection of tables. Example below is a list of Employees.</p>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/tables.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/tables.png" alt="Table Database" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-database-3" class="anchor" href="#database-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database</h2>
+
+<h3><a id="user-content-sql" class="anchor" href="#sql" aria-hidden="true"><span class="octicon octicon-link"></span></a>SQL</h3>
+
+<p>SQL: Structured Query Language
+A programming language used to search and save data to databases.</p>
+
+<pre><code>SELECT * FROM "movies" WHERE "movies"."title" = 'Jaws'
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-model" class="anchor" href="#model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model</h2>
+
+<h3><a id="user-content-code-along-shirts" class="anchor" href="#code-along-shirts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Along: Shirts</h3>
+
+<p>Shirt Management app is an application we will build incrementally during class.</p>
+
+<p>The app allows users to manage their T-Shirts collection, by adding and deleting shirts to the database.</p>
+
+<p>For this lesson we will add a basic T-Shirt Model.</p>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h3><a id="user-content-shirt-management" class="anchor" href="#shirt-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shirt Management</h3>
+
+<p>Let's Add a T-Shirt Model.</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-create-a-new-model" class="anchor" href="#create-a-new-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a new model</h3>
+
+<pre><code>    rails g model Shirt name:string description:text
+</code></pre>
+
+</section>
+<section>
+
+<h3><a id="user-content-create-a-new-model" class="anchor" href="#create-a-new-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>the migration</h3>
+<pre><code>
+class CreateShirts < ActiveRecord::Migration
+  def change
+    create_table :shirts do |t|
+      t.string :name
+      t.text :description
+
+      t.timestamps
+    end
+  end
+end
+</code></pre>
+
+</section>
+<section>
+
+<pre><code>    rails g model Shirt name:string description:text
+</code></pre>
+
+<pre><code>
+class CreateShirts < ActiveRecord::Migration
+  def change
+    create_table :shirts do |t|
+      t.string :name
+      t.text :description
+
+      t.timestamps
+    end
+  end
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-1" class="anchor" href="#recap-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-rake" class="anchor" href="#rake" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rake</h3>
+
+<pre><code>rake db:migrate
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-2" class="anchor" href="#recap-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-rake-1" class="anchor" href="#rake-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rake</h3>
+
+<ul>
+<li>  Task runner for ruby</li>
+<li>  Used to:
+
+<ul>
+<li>  Run Migrations</li>
+<li>  Seed your database</li>
+</ul></li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-shirt-management-1" class="anchor" href="#shirt-management-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shirt Management</h2>
+
+<ul>
+<li>  Add image field to database (we will create the view next class)</li>
+<li>  Run seeds file</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-3" class="anchor" href="#recap-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-migration" class="anchor" href="#migration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migration</h3>
+
+<pre><code># defaults
+class AddImageToShirts &lt; ActiveRecord::Migration
+    def change
+        add_column :shirts, :image, :string
+    end
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-4" class="anchor" href="#recap-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-migration-1" class="anchor" href="#migration-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migration</h3>
+
+<ul>
+<li><p>Can add fields / columns to existing tables</p>
+</li>
+</ul>
+<pre><code># shortcut Syntax
+    rails g migration AddImageToShirts image:string
+</code></pre>
+
+<pre><code># defaults
+class AddImageToShirts &lt; ActiveRecord::Migration
+    def change
+        add_column :shirts, :image, :string
+    end
+end
+</code></pre>
+
+
+
+</section>
+<section>
+<h2><a id="user-content-migrations" class="anchor" href="#migrations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migrations</h2>
+
+<h3><a id="user-content-what-can-you-do-in-a-migration" class="anchor" href="#what-can-you-do-in-a-migration" aria-hidden="true"><span class="octicon octicon-link"></span></a>What can you do in a migration?</h3>
+
+<ul>
+<li>Adding/removing columns from a table</li>
+<li>Modifying columns on a table</li>
+<li>Adding/removing tables</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-5" class="anchor" href="#recap-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-seeds" class="anchor" href="#seeds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Seeds</h3>
+
+<ul>
+<li>  Fast and easy way to add data to your tables</li>
+<li>  Place a <code>seeds.rb</code> file into your <code>db/</code> folder</li>
+<li>  Run <code>rake db:seeds</code></li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-shirt-management-2" class="anchor" href="#shirt-management-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shirt Management</h2>
+
+<ul>
+<li>  Rails Console &amp; Active Record</li>
+<li>  CRUD</li>
+</ul>
+
+</section>
+<section>
+
+<h3><a id="user-content-active-record" class="anchor" href="#active-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>Active Record</h3>
+
+<p>Create</p>
+
+<pre><code>Shirt.create(name: "White Tee")
+</code></pre>
+
+<p>Read</p>
+
+<pre><code>Shirt.find_by name: "White Tee"
+</code></pre>
+
+<p>Update</p>
+
+<pre><code>my_shirt = Shirt.find_by name: "White Tee"
+my_shirt.update description: "GA white T-Shirt"
+</code></pre>
+
+<p>Delete</p>
+
+<pre><code>my_shirt = Shirt.find_by name: "White Tee"
+my_shirt.destroy
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-recap-7" class="anchor" href="#recap-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h2>
+
+<h3><a id="user-content-active-record-1" class="anchor" href="#active-record-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Active Record</h3>
+
+<ul>
+<li>  Rails has a library called ActiveRecord to help Models talk to the database.</li>
+<li>  Thus, Rails models are called ActiveRecord models.</li>
+<li>  While ActiveRecord makes it easy to avoid SQL almost entirely, it's still valuable to know some SQL. Later in your development path, you will want to know which queries are more/less efficient so you can optimize them.</li>
+<li>  For now though, we can enjoy the super-simple syntax of ActiveRecord to talk to our database.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-models-1" class="anchor" href="#models-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Models</h2>
+
+<h3><a id="user-content-summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
+
+<ul>
+<li>  We want to store our data in a persistent manner, so we need databases.</li>
+<li>  Communicating with databases in SQL is complex, so we use ActiveRecord models to help us.</li>
+<li>  ActiveRecord models are just Ruby Objects, so we can call methods on them and pass them around like any other object.</li>
+
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-models-1" class="anchor" href="#models-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Models</h2>
+
+<ul>
+<li>  Each Model <em>class</em> maps to a database table
+
+<ul>
+<li>  <code>&gt;&gt; User.all</code></li>
+<li>  <code>&gt;&gt; User.create first_name: 'Salman'</code></li>
+<li>  <code>&gt;&gt; User.find(1)</code></li>
+</ul></li>
+<li>  Each Model <em>instance</em> maps to a single record in a table in the database
+
+<ul>
+<li>  <code>&gt;&gt; user = User.find(1)</code></li>
+<li>  <code>=&gt; #&lt;User:0x007fcf8e9eebd8&gt;</code></li>
+<li>  <code>&gt;&gt; user.id</code></li>
+<li>  <code>=&gt; 1</code></li>
+<li>  <code>&gt;&gt; user.update last_name: 'Ansari'</code></li>
+</ul></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-mvc" class="anchor" href="#mvc" aria-hidden="true"><span class="octicon octicon-link"></span></a>MVC</h2>
+
+<h3><a id="user-content-model-view-controller-1" class="anchor" href="#model-view-controller-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model View Controller</h3>
+
+<ul>
+<li>  The controller interacts with the Model</li>
+<li>  The controller renders the view, passing it Model data (using instance variables)</li>
+<li>  The view and the model do not interact (need the controller)</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/mvc_diagram.png" target="_blank"><img src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/rails/mvc_diagram.png" alt="MVC Diagram" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-mvc-1" class="anchor" href="#mvc-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>MVC</h2>
+
+<h3><a id="user-content-controller" class="anchor" href="#controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controller</h3>
+
+<ul>
+<li>  Controller interacting with the model</li>
+</ul>
+
+<p><strong>shirts_controller.rb</strong></p>
+
+<pre><code>    @shirts = Shirts.all #Returns an array of Shirts (array of hashes)
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-mvc-2" class="anchor" href="#mvc-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>MVC</h2>
+
+<h3><a id="user-content-controller-1" class="anchor" href="#controller-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controller</h3>
+
+<ul>
+<li>  Controller intreating with the view</li>
+</ul>
+
+<p><strong>shirts/index.html.erb</strong></p>
+
+<pre><code>    #Can be used in the view
+    @shirts
+</code></pre>
+
+</section>
+
+<section>
+
+<p><a href="http://www.github.com/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.github.com/generalassembly-studio/BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-movie-app---movie-model" class="anchor" href="#movie-app---movie-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Movie App - Movie Model</h2>
+
+</section>
+<!-- <section>
+
+<p></p><div id="user-content-resources"><p></p>
+
+<h2><a id="user-content-resources-models--active-record" class="anchor" href="#resources-models--active-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources: Models &amp; Active Record</h2>
+
+<h3><a id="user-content-cheat-sheet" class="anchor" href="#cheat-sheet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cheat Sheet</h3>
+
+<h4><a id="user-content-create-models" class="anchor" href="#create-models" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Models</h4>
+
+<div class="highlight highlight-source-shell"><pre>    rails g model ModelName attribute_name:migration_type attribute_2:migration_type</pre></div>
+
+<ul>
+<li>  Use spaces to separate attributes. If you don't list a migration_type (text, integer, float, etc.) the default will be string.</li>
+</ul>
+
+<h4><a id="user-content-migrations-1" class="anchor" href="#migrations-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Migrations</h4>
+
+<p><strong>Migrations</strong></p>
+
+<ul>
+<li>  Forgot an attribute / field in your model? Create a migration
+
+<ul>
+<li>  Code below adds a field called ratings to the Movies model.</li>
+</ul></li>
+</ul>
+
+<pre><code>    rails g migration AddRatingToMovies rating:integer
+</code></pre>
+
+<p><strong>Seed Files</strong></p>
+
+<ul>
+<li>  Populating an entire database with the console would take a while. Use the seeds.rb file.</li>
+</ul>
+
+<pre><code>rake db:seed
+</code></pre>
+
+<p><strong>Drop The Database</strong></p>
+
+<ul>
+<li>  <em>You will loose your data if you do this.</em></li>
+</ul>
+
+<pre><code>    rake db:drop
+</code></pre>
+
+<p><strong>Drop database, run migrations, run seeds</strong></p>
+
+<pre><code>    rake db:reset
+</code></pre>
+
+<h4><a id="user-content-active-record-2" class="anchor" href="#active-record-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Active Record</h4>
+
+<p><strong>Create</strong></p>
+
+<pre><code>```
+    Movie.create(title: "Jaws")
+```
+</code></pre>
+
+<p><strong>Read</strong></p>
+
+<pre><code>```
+    Movie.find_by title: "Jaws"
+```
+
+```
+    # Returns all movie objects in an array.
+    Movie.all
+```
+</code></pre>
+
+<p><strong>Update</strong></p>
+
+<pre><code>```
+    jaws = Movie.find_by title: "Jaws"
+    jaws.update description: "Big Shark, bites people"
+```
+</code></pre>
+
+<p><strong>Delete</strong></p>
+
+<pre><code>```
+    jaws.destroy
+```
+</code></pre>
+
+<h3><a id="user-content-still-feel-lost" class="anchor" href="#still-feel-lost" aria-hidden="true"><span class="octicon octicon-link"></span></a>Still Feel Lost?</h3>
+
+<p>At the end of this course you should have an understanding of what databases are and the general structure of a database table (rows and colums). In addition you should be familiar with how to create, update and delete records using active record in the Rails console.</p>
+
+<h4><a id="user-content-catch-up-with-these-resources" class="anchor" href="#catch-up-with-these-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch Up With These Resources</h4>
+
+<p><a href="http://geekgirls.com/2011/09/databases-from-scratch-i-introduction/">Introduction to Databases w/ Geekgirls</a></p>
+
+<p><a href="http://www.youtube.com/watch?v=KgiCxe-ZW8o">Introduction to Database Youtube Video</a></p>
+
+<p><a href="http://edgeguides.rubyonrails.org/active_record_querying.html">Rails Guides Active Record Query</a></p>
+
+<p><a href="http://edgeguides.rubyonrails.org/active_record_validations.html">Rails Guides Validations</a></p>
+
+<p><strong>Rake</strong>
+Rake is Rails software task management tool, often used to automate moving, compiling, and deleting Ruby files</p>
+
+<p>Rake executes tasks defined in rake files which describe tasks to be completed using Ruby anonymous function blocks</p>
+
+<p><a href="http://guides.rubyonrails.org/command_line.html#rake">Introduction to using rake</a></p>
+
+<p><a href="http://docs.rubyrake.org/user_guide/index.html">User guide to rake</a></p>
+</div>
+
+
+
+
+        </section> -->
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
