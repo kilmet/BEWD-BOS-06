@@ -7,7 +7,7 @@ Time to review. You now have all the necessary knowledge to build a small Rails 
 
 We are going to build an app similar to [Bitly](https://bitly.com), called Ritly. The challenge is going to be understanding the flow of control in a Rails app.
 
-Instructors demo the app for students.
+[Preview](https://bewd-ritly.herokuapp.com/)
 
 Here is a brief overview of the app.
 
@@ -65,7 +65,7 @@ Remember, Google is your friend!
 
 The City Times needs an app and has hired BEWD students to build it. They want to enter the 21st century and move their print newspaper online.
 
-You will build Rewsly during lesson 11 & 12.
+[Preview](https://bewd-rewsly.herokuapp.com/)
 
 ####Time: 60 min
 
