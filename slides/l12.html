@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Lesson 12 - Authentication & Authorization</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" alt="GeneralAssemb.ly" title="GeneralAssemb.ly" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---authentication" class="anchor" href="#bewd---authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Authentication</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>  Review</li>
+
+
+<li>  Authentication</li>
+<li>  Authorization</li>
+<li>  Devise Gem</li>
+<li>  Lab</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-review" class="anchor" href="#review" aria-hidden="true"><span class="octicon octicon-link"></span></a>Review</h2>
+
+
+</section>
+<section>
+
+<h2><a id="user-content-authentication" class="anchor" href="#authentication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/login_screen.png" target="_blank"><img src="BEWD_Curriculum/raw/master/assets/rails/login_screen.png" alt="GitHub Sign Up Page" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-authentication-1" class="anchor" href="#authentication-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+
+<ul>
+<li>  Use of a combination of username and password to validate user identity. (Obvious I know…)</li>
+<li>  Tracking a user's identity on our app through the <strong>session</strong>.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-authentication-2" class="anchor" href="#authentication-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+
+<h3><a id="user-content-security" class="anchor" href="#security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h3>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/digital_security.jpeg" target="_blank"><img src="BEWD_Curriculum/raw/master/assets/rails/digital_security.jpeg" alt="lock image" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-security-1" class="anchor" href="#security-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h2>
+
+<ul>
+<li>  Can I view users' passwords in my app or database?</li>
+</ul>
+
+<h4><a id="user-content-no" class="anchor" href="#no" aria-hidden="true"><span class="octicon octicon-link"></span></a>NO!</h4>
+
+</section>
+<section>
+
+<h2><a id="user-content-security-2" class="anchor" href="#security-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h2>
+
+<h3><a id="user-content-storing-passwords" class="anchor" href="#storing-passwords" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storing Passwords</h3>
+
+<p>Bad practice to keep passwords in “clear text”</p>
+
+<ul>
+<li>  Passwords can't be stored in plain text in your database.
+If your database is compromised then passwords are compromised as well.
+
+<ul>
+</ul></li>
+</ul>
+
+</section>
+<section>
+<h2><a id="user-content-security-3" class="anchor" href="#security-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h2>
+<h3><a id="user-content-hashing" class="anchor" href="#hashing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashing</h3>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="http://www.seriouseats.com/recipes/images/2014/04/20140321-green-chile-chorizo-hash-food-lab-610px-07.jpg" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-security-3" class="anchor" href="#security-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h2>
+
+<h3><a id="user-content-hashing" class="anchor" href="#hashing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hashing</h3>
+
+<p>Use one way hash</p>
+
+<pre><code>Digest::SHA2.hexdigest("secret")
+# =&gt; "e5e9fa1ba31ecd1ae84f75caaa474f3a663f05f4"
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-security-3" class="anchor" href="#security-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h2>
+<!-- <h3><a id="user-content-hashing" class="anchor" href="#hashing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding Salt</h3> -->
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Salt_shaker_on_white_background.jpg/800px-Salt_shaker_on_white_background.jpg" style="max-width:30%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-security-4" class="anchor" href="#security-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h2>
+
+<h3><a id="user-content-adding-salt" class="anchor" href="#adding-salt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding Salt</h3>
+
+<p>Salt is random data that are used as an additional input to a one-way function that hashes a password.</p>
+
+<pre><code>salt = "a761ce3a45d97e41840a788495e85a70d1bb3815"
+password = "secret"
+Digest::SHA2.hexdigest(salt+password)
+# =&gt;"7963ca00e2e48ea80c615d037494de00a0964682"
+</code></pre>
+
+
+
+</section>
+<section>
+
+
+<!-- <h2><a id="user-content-security-3" class="anchor" href="#security-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security</h2> -->
+<h3><a id="user-content-hashing" class="anchor" href="#hashing" aria-hidden="true"><span class="octicon octicon-link"></span></a>cookies</h3>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSsP3FX0ZDKwnwWt58IEGNvuOe7VOKKsYzs-IaGjdAjDkwnfbwrvg" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+
+<h2><a id="user-content-managing-users-2" class="anchor" href="#managing-users-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Managing Users</h2>
+
+<h3><a id="user-content-cookie" class="anchor" href="#cookie" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookie</h3>
+
+<ul>
+<li>  Used to store small bits of information (maximum size about 4k).</li>
+<li>  Cookies are stored by the browser.
+
+<ul>
+<li>  Browser storage is not secure.</li>
+<li>  Sensitive data (credit card numbers, etc.) should never be set in a cookie</li>
+</ul></li>
+</ul>
+
+</section>
+<section>
+
+
+
+
+<h2><a id="user-content-managing-users-1" class="anchor" href="#managing-users-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Managing Users</h2>
+
+<h3><a id="user-content-session" class="anchor" href="#session" aria-hidden="true"><span class="octicon octicon-link"></span></a>Session</h3>
+
+<ul>
+<li><p>Session data commonly includes the browser user’s identity (name, login, shopping cart, etc.).</p></li>
+<li><p>To work, the web server must uniquely identify each browser’s particular HTTP requests while the session lasts.</p></li>
+<li><p>Commonly, web servers identify browsers by asking them to store a <strong>cookie</strong>.</p></li>
+</ul>
+
+</section>
+<section>
+<h2><a id="user-content-authentication-3" class="anchor" href="#authentication-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+
+<h3><a id="user-content-managing-users" class="anchor" href="#managing-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Managing Users</h3>
+
+<ul>
+<li>  When the user is authenticated we store the user_id in the <strong>session</strong>.</li>
+</ul>
+
+</section>
+<section>
+
+
+<h2><a id="user-content-authentication-4" class="anchor" href="#authentication-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+
+<h3><a id="user-content-gems" class="anchor" href="#gems" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gems</h3>
+
+<p>Creating authentication from scratch is a complex process (see resources for more info). However Developers have created Gems to make authentication "easy".</p>
+
+<ul>
+<li>  <strong>Devise</strong></li>
+<li>  CanCan</li>
+<li>  Clearance</li>
+<li>  OmniAuth</li>
+<li>  DoorKeeper</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-authentication-5" class="anchor" href="#authentication-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+
+<h3><a id="user-content-devise-gem" class="anchor" href="#devise-gem" aria-hidden="true"><span class="octicon octicon-link"></span></a>Devise GEM</h3>
+
+<p><a href="https://github.com/plataformatec/devise">https://github.com/plataformatec/devise</a></p>
+
+<ul>
+<li>  Straight-forward to implement, integrate and customize.</li>
+<li>  Handles complex security, so you don't have to.</li>
+<li>  Provides controller filters and view helpers (more on that in the code along).</li>
+<li>  Recently updated (v3.0.0) with Rails 4 support!</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-rewsly---adding-devise" class="anchor" href="#rewsly---adding-devise" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rewsly - Adding Devise</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-devise" class="anchor" href="#devise" aria-hidden="true"><span class="octicon octicon-link"></span></a>Devise</h2>
+
+<h3><a id="user-content-recap" class="anchor" href="#recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li><p>Adding Devise Gem to the Gemfile</p>
+
+<pre><code>gem 'devise'
+</code></pre></li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-devise-1" class="anchor" href="#devise-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Devise</h2>
+
+<h3><a id="user-content-recap-1" class="anchor" href="#recap-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li><p>Using Devise</p></li>
+</ul>
+
+<pre><code>rails g devise:install # creates the devise config and initializers
+rails g devise user    # creates or modifies User model
+rake db:migrate        # Let's Go!
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-devise-2" class="anchor" href="#devise-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Devise</h2>
+
+<h3><a id="user-content-recap-2" class="anchor" href="#recap-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li><p>View helpers</p></li>
+</ul>
+
+
+<pre><code>&lt;%= user_is_logged_in? %&gt;
+&lt;%= current_user %&gt;
+</code></pre>
+</section>
+<section>
+
+<!-- <h2><a id="user-content-authentication-6" class="anchor" href="#authentication-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authentication</h2>
+
+<h3><a id="user-content-recap-3" class="anchor" href="#recap-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li><p>View helpers</p>
+
+<pre><code>&lt;%= user_is_logged_in? %&gt;
+&lt;%= current_user %&gt;
+</code></pre></li>
+</ul>
+
+</section>
+<section> -->
+
+<h2><a id="user-content-devise-3" class="anchor" href="#devise-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Devise</h2>
+
+<h3><a id="user-content-recap-4" class="anchor" href="#recap-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li><p>Blocking Access</p></li>
+</ul>
+
+<pre><code>class ApplicationController ...
+    before_action :authenticate_user!
+end
+
+class HomeController &lt; ApplicationController
+    skip_before_action :authenticate_user!
+end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-devise-3" class="anchor" href="#devise-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Devise</h2>
+<!--
+<h3><a id="user-content-recap-4" class="anchor" href="#recap-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3> -->
+
+<h3><a id="user-content-recap-4" class="anchor" href="#recap-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logging out</h3>
+<pre><code><%= link_to("logout", destroy_user_session_url, method: :delete) %>
+</code></pre>
+</section>
+<section>
+
+<!--
+<h2><a id="user-content-devise-4" class="anchor" href="#devise-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Devise</h2>
+
+<h3><a id="user-content-recap-5" class="anchor" href="#recap-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recap</h3>
+
+<ul>
+<li><p>Changing the default Route names</p>
+
+<pre><code>devise_for :users, :path_names =&gt; { sign_in: 'login', sign_out: 'logout' }
+</code></pre></li>
+</ul>
+
+</section>
+<section> -->
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-lab-time---authenticated-ritly" class="anchor" href="#lab-time---authenticated-ritly" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Time - Authenticated Ritly</h2>
+
+</section>
+<!--<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<p>Write a list of information/data you want to store about your user.</p>
+
+</section>
+<section> -->
+<!--
+<p></p><div id="user-content-resources"><p></p>
+
+<h2><a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h2>
+
+<h3><a id="user-content-cheat-sheet" class="anchor" href="#cheat-sheet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cheat Sheet</h3>
+
+<p>No cheat sheet this class. Remember, Google is your friend!</p>
+
+<h3><a id="user-content-tips-tricks--advanced-reading" class="anchor" href="#tips-tricks--advanced-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips, Tricks &amp; Advanced Reading</h3>
+
+<ul>
+<li><p>If you want to expand your knowledge about Rails authentication gems visit <a href="https://www.ruby-toolbox.com/categories/rails_authentication">Ruby Toolbox</a> for a few more authentication gem options.</p></li>
+<li><p>Great <a href="http://scientopia.org/blogs/goodmath/2013/03/02/passwords-hashing-and-salt/">article</a> explaining passwords, hashing, and salt.</p></li>
+<li><p>Advanced <a href="http://edapx.com/2012/04/18/authorization-and-user-management-in-rails/">article</a> about authorization and users management in rails.</p></li>
+<li><p><a href="http://everydayrails.com/2012/07/31/rails-admin-panel-from-scratch.html">Tutorial</a> on how to create an advanced admin panel.</p></li>
+<li><p><a href="http://railscasts.com/episodes/250-authentication-from-scratch">Authentication From Scratch</a> Rails Cast</p></li>
+</ul>
+
+<h3><a id="user-content-still-feel-lost" class="anchor" href="#still-feel-lost" aria-hidden="true"><span class="octicon octicon-link"></span></a>Still Feel Lost?</h3>
+
+<h4><a id="user-content-catch-up-with-these-resources" class="anchor" href="#catch-up-with-these-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catch Up With These Resources</h4>
+
+<ul>
+<li>  <a href="http://railscasts.com/episodes/209-introducing-devise">Devise</a> Rails Cast</li>
+</ul>
+</div>
+				</section> -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
