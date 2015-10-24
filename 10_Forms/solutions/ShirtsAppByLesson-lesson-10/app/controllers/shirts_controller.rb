@@ -2,6 +2,8 @@ class ShirtsController < ApplicationController
   before_action :load_shirt, only: [:edit, :show, :update]
 
   def index
+
+    session[:example] = 234565
     @shirts = Shirt.search_for(params[:q])
   end
 

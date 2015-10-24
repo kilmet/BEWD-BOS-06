@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Lesson 14 - Getting Started</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" alt="GeneralAssemb.ly" title="GeneralAssemb.ly" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---final-project-getting-started" class="anchor" href="#bewd---final-project-getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Final Project: Getting Started</h1>
+
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>  Plan Your App</li>
+<li>  User Stories</li>
+<li>  Wireframes / Paper Prototype</li>
+<li>  User Testing</li>
+<li>  Database Schema</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-plan-your-app" class="anchor" href="#plan-your-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plan Your App</h2>
+
+<h3><a id="user-content-before-you-code" class="anchor" href="#before-you-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before you code</h3>
+
+<p>We are going to borrow some best practices from project managers and UX designers to help us plan our final project.</p>
+
+<ul>
+<li>  Planning before code will help prevent uniformed (and expensive) decisions.</li>
+<li>  Thinking deeply about how you want your app to function will help provide direction.</li>
+<li>  Visualizing your application flow will simplify implementation.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-user-stories" class="anchor" href="#user-stories" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Stories</h2>
+
+<p>As a user, I want to take a photo of where I am and share it with the world. - Simple User Story for Instagram.
+</p>
+
+<ul>
+<li>  User stories are used with agile software development methodologies as the basis for defining the functions a business system must provide, and to facilitate requirements management. </li>
+<li>  A user story captures the 'who', 'what' and 'why' of a requirement in a simple, concise way, often limited in detail by what can be hand-written on a small paper notecard. </li>
+<li>  User stories are written from the perspective of the user (a regular user, admin user, or otherwise), not the developer.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-user-stories-1" class="anchor" href="#user-stories-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Stories</h2>
+
+<h3><a id="user-content-how-we-will-use-them" class="anchor" href="#how-we-will-use-them" aria-hidden="true"><span class="octicon octicon-link"></span></a>How we will use them</h3>
+
+<ul>
+<li>  We are going to write user stories to help define what functionality we need to build. </li>
+<li>  We can also use them to determine what functionality we will build during this course and what we will build beyond BEWD.</li>
+<li>  In addition, we will create paper prototype for our web applications and diagram the database schema from our user stories.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-user-stories-2" class="anchor" href="#user-stories-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Stories</h2>
+
+<h3><a id="user-content-basic-rules" class="anchor" href="#basic-rules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Rules</h3>
+
+<p>This is the user story template: </p>
+
+<p>“As a &lt;type of user&gt;, </p>
+<p>when I &lt;perform some action&gt; </p>
+<p>then I should see &lt;something happen&gt;.” </p>
+
+</section>
+<section>
+<p>Example User Story for Amazon:</p>
+
+<ul>
+<li>  <em>“As an Amazon user, when I add a movie to my Amazon Wish List, then I should see the movie when I visit my Wish List page.”</em></li>
+<li>  <em>“As an Amazon user, when I add a movie to my Amazon Wish List, and click 'Share to Facebook', then my Facebook friends should see a story about the event in their Facebook newsfeed.”</em>*<br></li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-user-stories-3" class="anchor" href="#user-stories-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Stories</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-wireframes-and-paper-prototypes" class="anchor" href="#wireframes-and-paper-prototypes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wireframes and Paper Prototypes</h2>
+
+<h3><a id="user-content-definition" class="anchor" href="#definition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Definition</h3>
+
+<p>Wireframes are a key tool in communicating the content and layout of a web page. They are simple mock ups showcasing how the site will look. Some will use digital tools to create wireframes, others will draw them on paper.</p>
+
+<p>They can be used by:</p>
+
+<ul>
+<li>  Project Managers to review plans with stakeholders</li>
+<li>  Programmers to develop functionality</li>
+<li>  Graphic designers to produce designs</li>
+</ul>
+
+</section>
+<section>
+
+<!-- <h2><a id="user-content-wireframes-and-paper-prototypes-1" class="anchor" href="#wireframes-and-paper-prototypes-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wireframes and Paper Prototypes</h2>
+
+<h3><a id="user-content-simple-quick-and-easy" class="anchor" href="#simple-quick-and-easy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple, Quick and Easy</h3>
+ -->
+<p><a href="BEWD_Curriculum/blob/master/assets/rails/paper_proto.png" target="_blank"><img src="BEWD_Curriculum/raw/master/assets/rails/paper_proto.png" alt="" style="max-width:80%;"></a></p>
+
+</section>
+<section>
+
+<!-- <h2><a id="user-content-wireframes-and-paper-prototypes-2" class="anchor" href="#wireframes-and-paper-prototypes-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wireframes and Paper Prototypes</h2>
+
+<h3><a id="user-content-simple-quick-and-easy-1" class="anchor" href="#simple-quick-and-easy-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple, Quick and Easy</h3> -->
+
+<p><a href="BEWD_Curriculum/blob/master/assets/rails/paper_proto2.png" target="_blank"><img src="BEWD_Curriculum/raw/master/assets/rails/paper_proto2.png" alt="" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<p><a href="BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-wireframes" class="anchor" href="#wireframes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wireframes</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-wireframes-and-paper-prototypes-3" class="anchor" href="#wireframes-and-paper-prototypes-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wireframes and Paper Prototypes</h2>
+
+<h3><a id="user-content-how-we-will-use-them-1" class="anchor" href="#how-we-will-use-them-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>How we will use them</h3>
+
+<ul>
+<li>  We are going to create simple prototypes using pen and paper. This is the fastest way to test your ideas.</li>
+<li>  Doing so enables you to seek out the help of others to test your application, rather than just reviewing it yourself…</li>
+<li>  One methodology to solicit feedback for your app is User Testing.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-user-testing" class="anchor" href="#user-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Testing</h2>
+
+<h3><a id="user-content-definition-1" class="anchor" href="#definition-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Definition</h3>
+
+<p>A simple method to evaluate a product by testing out a sample of the user experience on users. </p>
+
+</section>
+<section>
+
+<h2><a id="user-content-user-testing-1" class="anchor" href="#user-testing-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Testing</h2>
+
+<h3><a id="user-content-how-we-will-use-it" class="anchor" href="#how-we-will-use-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How we will use it</h3>
+
+<p>During this class we will use our paper prototypes and test our ideas and layouts. This will help us define and scope functionality.</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-user-testing-2" class="anchor" href="#user-testing-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Testing</h2>
+
+<h3><a id="user-content-how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it Works</h3>
+
+<ul>
+<li>  Your tester will use your paper prototype as if it were a real web application. </li>
+<li>  Ask them to speak their thoughts aloud as they are testing. </li>
+<li>  Take notes about what they find confusing, and make changes after you've tested all users.</li>
+<li>  The experts say you only have to test 5 people to find 95% of the problems with your design. </li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-user-testing-3" class="anchor" href="#user-testing-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Testing</h2>
+
+<h3><a id="user-content-advanced-example" class="anchor" href="#advanced-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced Example</h3>
+
+<h5><a id="user-content-hanmail-paper-prototype-httpswwwyoutubecomembedgrv2szurpv0" class="anchor" href="#hanmail-paper-prototype-httpswwwyoutubecomembedgrv2szurpv0" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hanmail Paper Prototype: <a href="https://www.youtube.com/embed/GrV2SZuRPv0">https://www.youtube.com/embed/GrV2SZuRPv0</a></h5>
+
+
+
+</section>
+<section>
+<!--
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<h3><a id="user-content-project-milestone" class="anchor" href="#project-milestone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Milestone</h3>
+
+<h4><a id="user-content-due-lesson-15" class="anchor" href="#due-lesson-15" aria-hidden="true"><span class="octicon octicon-link"></span></a>Due lesson 15.</h4>
+
+<ul>
+<li>  At least 5 User Stories.</li>
+<li>  Diagram of Database Schema (Models, attributes for those models, associations.)</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-rapid-prototype-your-app" class="anchor" href="#rapid-prototype-your-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rapid Prototype Your App</h2>
+
+<ul>
+<li>  Write User Stories (Time 20min)</li>
+<li>  Wireframe / Paper Prototype (Time 30min)</li>
+<li>  User Testing (Time 20min)</li>
+<li>  Database Schema (time 45 min)</li>
+</ul>
+
+</section>
+<section>
+
+<p></p><div id="user-content-resources"><p></p>
+
+<h2><a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h2>
+
+<h3><a id="user-content-cheat-sheet" class="anchor" href="#cheat-sheet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cheat Sheet</h3>
+
+<p>No cheat sheet this class. Remember, Google is your friend!</p>
+
+<h3><a id="user-content-tips-tricks--advanced-reading" class="anchor" href="#tips-tricks--advanced-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips, Tricks &amp; Advanced Reading</h3>
+
+<p><strong>How To Start</strong></p>
+
+<ul>
+<li>  How to start a Rails app Stack-Over Flow <a href="http://stackoverflow.com/questions/1594010/how-do-you-plan-your-rails-app">discussion</a></li>
+</ul>
+
+<p><strong>User Stories</strong></p>
+
+<ul>
+<li><p>User story <a href="http://www.mountaingoatsoftware.com/blog/advantages-of-the-as-a-user-i-want-user-story-template">template</a></p></li>
+<li><p>Mike Cohn User Stories <a href="http://www.mountaingoatsoftware.com/system/asset/file/259/User-Stories-Applied-Mike-Cohn.pdf">Chapter</a></p></li>
+</ul>
+
+<p>Why user stories make sense <a href="http://agile.dzone.com/articles/why-user-stories-make-sense?mz=123873-agile">article</a></p>
+
+<p><strong>Wireframe &amp; Paper Prototypes</strong></p>
+
+<ul>
+<li><p>Prototyping <a href="http://www.usabilitynet.org/tools/prototyping.htm">Tutorial</a></p></li>
+<li><p>Wireframing <a href="http://webdesign.tutsplus.com/tutorials/workflow-tutorials/a-beginners-guide-to-wireframing/">Tutorial</a></p></li>
+<li><p>Wireframe <a href="http://web2usability.wordpress.com/2009/01/07/definition-usage-wireframe/">Definition</a></p></li>
+</ul>
+</div> -->
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
