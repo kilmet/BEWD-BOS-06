@@ -1,5 +1,6 @@
 class Story < ActiveRecord::Base
   validates :title, :link, :category, :upvotes, presence: true
+  belongs_to :user
   scope :popular, -> { where('upvotes >= ?', 4)}
   scope :recent, -> { where('created_at >= ?', Date.today)}
 

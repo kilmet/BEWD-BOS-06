@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Lesson 16 - Finishing Touches</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+<p><a href="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" target="_blank"><img src="https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png" alt="GeneralAssemb.ly" title="GeneralAssemb.ly" style="max-width:100%;"></a></p>
+
+<h1><a id="user-content-bewd---finishing-touches" class="anchor" href="#bewd---finishing-touches" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEWD - Finishing Touches</h1>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sam Backus</h3>
+<h3><a id="user-content-instructor-name" class="anchor" href="#instructor-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>Valeria Graffeo</h3>
+
+</section>
+<section>
+
+<h2><a id="user-content-agenda" class="anchor" href="#agenda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Agenda</h2>
+
+<ul>
+<li>  Review Exercise - "Stuff Finder"</li>
+<li>  Front-End Frameworks</li>
+<li>  Deploying to Heroku</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-stuff-finder---build" class="anchor" href="#stuff-finder---build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stuff Finder - Build</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-front-end-frameworks" class="anchor" href="#front-end-frameworks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front-End Frameworks</h2>
+
+<h3><a id="user-content-what-about-the-front-end" class="anchor" href="#what-about-the-front-end" aria-hidden="true"><span class="octicon octicon-link"></span></a>What about the front-end?</h3>
+
+<ul>
+<li>  Use a front-end framework to add quick and easy styling to a Rails app.</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-front---end-frameworks" class="anchor" href="#front---end-frameworks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front - End Frameworks</h2>
+
+<h3><a id="user-content-some-popular-options" class="anchor" href="#some-popular-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Popular Options</h3>
+
+<ul>
+<li>  Twitter Bootstrap</li>
+<li>  Foundation</li>
+<li>  Skeleton</li>
+<li>  Gumby</li>
+</ul>
+
+</section>
+<section>
+
+<h2><a id="user-content-twitter-bootstrap" class="anchor" href="#twitter-bootstrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Twitter Bootstrap</h2>
+
+<h3><a id="user-content-built-w-bootstrap" class="anchor" href="#built-w-bootstrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Built w/ Bootstrap</h3>
+
+<p>Great <a href="http://builtwithbootstrap.com/">sites</a> use Twitter Bootstrap</p>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/bs-docs-bootstrap-features.png" target="_blank"><img src="BEWD_Curriculum/raw/master/assets/rails/bs-docs-bootstrap-features.png" alt="" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-front---end-frameworks-1" class="anchor" href="#front---end-frameworks-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Front - End Frameworks</h2>
+
+<h3><a id="user-content-twitter-bootstrap-1" class="anchor" href="#twitter-bootstrap-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Twitter Bootstrap</h3>
+
+<ul>
+<li>  Built @ Twitter by two employees (@mdo and @fat)</li>
+<li>  Managed through GitHub</li>
+<li>  Great css components</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-stuff-finder---styled" class="anchor" href="#stuff-finder---styled" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stuff Finder - Styled</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-heroku" class="anchor" href="#heroku" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heroku</h2>
+
+<h3><a id="user-content-platform-as-a-service" class="anchor" href="#platform-as-a-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Platform as a Service</h3>
+
+<ul>
+<li>  Pronounced her-OH-koo</li>
+<li>  Founded in 2007 by Orion Henry, James Lindenbaum, and Adam Wiggins.</li>
+<li>  Cloud application platform </li>
+<li>  Allows free app deployment, and server management.</li>
+</ul>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/heroku-logo-light.png" target="_blank"><img src="BEWD_Curriculum/raw/master/assets/rails/heroku-logo-light.png" alt="" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Code_along_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Code_along_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-stuff-finder---heroku" class="anchor" href="#stuff-finder---heroku" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stuff Finder - Heroku</h2>
+
+</section>
+<section>
+
+<h2><a id="user-content-heroku-recap" class="anchor" href="#heroku-recap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heroku Recap</h2>
+
+<h3><a id="user-content-postgresql" class="anchor" href="#postgresql" aria-hidden="true"><span class="octicon octicon-link"></span></a>PostgreSQL</h3>
+
+<ul>
+<li>  Open source database</li>
+<li>  15 years of active development </li>
+<li>  Runs on all major operating systems, </li>
+</ul>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/rails/elephant.png" target="_blank"><img src="BEWD_Curriculum/raw/master/assets/rails/elephant.png" alt="postgresql elephant" style="max-width:100%;"></a></p>
+
+</section>
+<section>
+
+<h2><a id="user-content-heroku-recap-1" class="anchor" href="#heroku-recap-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heroku Recap</h2>
+
+<h3><a id="user-content-postgresql-1" class="anchor" href="#postgresql-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>PostgreSQL</h3>
+
+<pre><code>#Gemfile
+    ruby "2.0.0"
+    group :development do
+        gem 'sqlite3'
+    end
+
+    group :production do
+        gem 'pg'
+    end
+</code></pre>
+
+</section>
+<section>
+
+<h2><a id="user-content-heroku-recap-2" class="anchor" href="#heroku-recap-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Heroku Recap</h2>
+
+<h3><a id="user-content-create--deploy" class="anchor" href="#create--deploy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create &amp; Deploy</h3>
+
+<p>Create App</p>
+
+<pre><code>heroku create --stack cedar [&lt;appname&gt;]
+</code></pre>
+
+<p>Deploy App</p>
+
+<pre><code>git push heroku master
+</code></pre>
+
+<p>Open App in Web Browser</p>
+
+<pre><code>heroku open
+</code></pre>
+
+</section>
+<section>
+
+<p><a href="/generalassembly-studio/BEWD_Curriculum/blob/master/assets/ICL_icons/Exercise_icon_md.png" target="_blank"><img id="user-content-icon" src="BEWD_Curriculum/raw/master/assets/ICL_icons/Exercise_icon_md.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-lab-time" class="anchor" href="#lab-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lab Time</h2>
+
+<p>Style and Push Changes</p>
+
+</section>
+<section>
+
+<h2><a id="user-content-homework" class="anchor" href="#homework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Homework</h2>
+
+<h4><a id="user-content-the-countdown-is-on" class="anchor" href="#the-countdown-is-on" aria-hidden="true"><span class="octicon octicon-link"></span></a>The countdown is on!</h4>
+
+<h4><a id="user-content-4-lessons-left" class="anchor" href="#4-lessons-left" aria-hidden="true"><span class="octicon octicon-link"></span></a>4 lessons left!</h4>
+
+<p>Continue to work on your final project. </p>
+
+</section>
+<section>
+
+<p></p><div id="user-content-resources"><p></p>
+
+<h2><a id="user-content-resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h2>
+
+<h3><a id="user-content-tips-tricks--advanced-reading" class="anchor" href="#tips-tricks--advanced-reading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips, Tricks &amp; Advanced Reading</h3>
+
+<ul>
+<li><p><a href="http://responsive.vermilion.com/compare.php">Info-graphic</a> that compares different front-end frameworks.</p></li>
+<li><p>Heroku <a href="http://ruten.ca/2012/02/15/heroku-cheatsheet-useful-heroku-commands-reference/">Cheat Sheet</a></p></li>
+<li><p>Twitter Bootstrap <a href="http://twitter.github.io/bootstrap/">Documentation</a></p></li>
+<li><p>Twitter Bootstrap <a href="http://webdesign.tutsplus.com/tutorials/workflow-tutorials/twitter-bootstrap-101-customize/">tutorial</a>.</p></li>
+</ul>
+</div>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

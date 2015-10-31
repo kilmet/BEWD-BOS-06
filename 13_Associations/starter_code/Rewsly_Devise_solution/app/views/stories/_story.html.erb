@@ -3,6 +3,7 @@
   <p>
     <b>Upvotes</b>: <%= story.upvotes %> ||
     <b>Category</b>: <%= story.category %> ||
+    <p><%= story.user.email %> </p>
     <b><%= link_to "Comments", story %></b>
   </p>
 </li>
