@@ -73,7 +73,24 @@
 </section><section>
 <h2>An intro to testing</h2>
 <h3>Ruby Koans</h3>
-</section><section>
+	</section><section>
+
+	<pre><code>
+require File.expand_path(File.dirname(__FILE__) + '/neo')
+
+class AboutAsserts < Neo::Koan
+
+  # To understand reality, we must compare our expectations against
+  # reality.
+  def test_assert_equality
+    expected_value = 2
+    actual_value = 1 + 1
+
+    assert expected_value == actual_value
+  end
+end
+  </code></pre>
+	</section><section>
 	<pre><code>
 require 'minitest/autorun'
 require './fizzbuzz'
@@ -86,6 +103,31 @@ class TestFizzBuzz < Minitest::Test
   end
 end
 	</code></pre>
+
+	</section><section>
+<h2>Test Driven Development</h2>
+<h3>TDD</h3>
+	</section><section>
+<img src="http://marcabraham.files.wordpress.com/2012/04/06_red_green_refactor.jpg">
+	</section><section>
+<img src="http://wrozka.github.io/ppppp-pair-programming/img/red-green-refactor.png">
+	</section><section>
+	<h2>TDD Demo</h2>
+	<h2>Roman Numerals</h2>
+
+	</section><section>
+	<h2>TDD Practice</h2>
+<h2>FizzBuzz</h2>
+	</section><section>
+	<h2>Testing in Rails</h2>
+
+	</section><section>
+
+	</section><section>
+
+	</section><section>
+
+	</section><section>
 </section>
 
 			</div>

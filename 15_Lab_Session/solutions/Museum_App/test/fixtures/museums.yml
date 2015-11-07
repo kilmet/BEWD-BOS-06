@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  city: MyString
+met:
+  name: Metropolotin Museum of Fine Art
+  city: New York
 
-two:
-  name: MyString
-  city: MyString
+mfa:
+  name: Museum of Fine Art
+  city: Boston

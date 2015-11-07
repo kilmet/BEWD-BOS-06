@@ -1,13 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+  # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  nationality: MyString
+picasso:
+  name: Pablo Picasso
+  nationality: Spanish
   dob: 2013-08-27
   image: MyText
 
-two:
-  name: MyString
-  nationality: MyString
+monet:
+  name: Claude Monet
+  nationality: French
   dob: 2013-08-27
   image: MyText
