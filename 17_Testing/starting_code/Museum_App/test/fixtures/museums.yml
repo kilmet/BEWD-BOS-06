@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+met:
+  name: Metropolotin Museum of Fine Art
+  city: New York
+
+mfa:
+  name: Museum of Fine Art
+  city: Boston

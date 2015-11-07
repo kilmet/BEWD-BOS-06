@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+bird:
+  title: Horses and Bird
+  year: 1956
+  style: Impressionist
+  image: http://uploads7.wikipaintings.org/images/pablo-picasso/bullfight-1934.jpg
+  museum: met
+  artist: monet
+
+flowers:
+  title: Flowers
+  year: 1973
+  style: abstract
+  image: https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS-d3FxWTWwnpzWUkrc50bEzg4aNDnVKhJBiqJQWAE132KZ3N6M
+  museum: mfa
+  artist: picasso
