@@ -10,13 +10,23 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 
 *Ignore the `$` as it's just a convention used to indicate a __prompt__ for command in the terminal.*
 
-## Start the terminal. _Also known as the shell, console, command line._  
-	* Select the magnifying glass in the menu on the upper right.  
-	* Type *Terminal* and hit the return/enter key. *This will start the `Terminal` application.  
+*Note: Some sections, not all, will have specific instructions for __OSX__ or __Linux__. __OSX__ is the operating system that run on Apple Macs.*
+
+## Start the terminal. 
+_Also known as the shell, console or command line._  
+
+### OSX
+
+* Select the magnifying glass in the menu on the upper right.  
+* Type *Terminal* and hit the return/enter key. *This will start the `Terminal` application.  
+
+### Linux
+
+* [How to open the command line](http://askubuntu.com/questions/196212/how-do-you-open-a-command-line)
 
 ## Setup Bash. 
  
- _Bash runs in the Terminal and is a command language that we will be using._  
+_Bash runs in the Terminal and is a command language that we will be using._  
 
 * Check for `.bash_profile` and `.bashrc` files.These two files are run when we start a new Terminal. They setup the Bash environment.  
 	```bash
@@ -25,64 +35,65 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 
 * Do you see `.bash_profile` and `.bashrc` in the list of files?  
 * (Optional, if above files are NOT found). This will create an empty version of these files.    
-	 ```bash
-	  $ touch .bash_profile
-	  $ touch .bashrc
-	  ```  
+
+```bash
+$ touch .bash_profile
+$ touch .bashrc
+```  
+
 * Append to bash files.  
 
-		
-	```bash
-	$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
-	$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile
-	``` 
+```bash
+$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
+$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile
+``` 
 	
 * Check bash files.  
 
-	*The `cat` command just prints out the contents of the file to the terminal.*
+_The `cat` command just prints out the contents of the file to the terminal._
 
-	```bash
-	$ cd 
-	$ cat .bash_profile
-	$ cat .bashrc
-	```  
+```bash
+$ cd 
+$ cat .bash_profile
+$ cat .bashrc
+```  
 	
-	Near the bottom, you should have something that looks like this:
+Near the bottom, you should have something that looks like this:
 
-	```bash
-	$ export PATH=/usr/local/bin:$PATH
-	$ test -f ~/.bashrc && source ~/.bashrc
-	```  
+```bash
+$ export PATH=/usr/local/bin:$PATH
+$ test -f ~/.bashrc && source ~/.bashrc
+```  
 	
 * You will also need to update `/etc/paths` by running the following commands.
 
-	```bash
-	$ echo '/\/usr\/local\/bin/\nd\nwq' | sudo ed /etc/paths
-	$ echo '1i\n/usr/local/bin\n.\nwq' | sudo ed /etc/paths
-	```
+```bash
+$ echo '/\/usr\/local\/bin/\nd\nwq' | sudo ed /etc/paths
+$ echo '1i\n/usr/local/bin\n.\nwq' | sudo ed /etc/paths
+```
 	
 * Finally, let's inspect our changes by typing `$ cat /etc/paths`. It should look like this:
 
-	```bash
-	/usr/local/bin
-	/usr/bin
-	/bin
-	/usr/sbin
-	/sbin
-	```  
+```bash
+/usr/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+```  
 
-## Install Command Line Tools
+## Install Command Line Tools (OSX Only)
 * Run `$ xcode-select --install`.
 * You may have to install updates the "App Store".   
 	
 __OR__
 
 * __Make sure you have an apple ID__ (you should already have one).
-* Go to [https://developer.apple.com/downloads/index.action)(https://developer.apple.com/downloads/index.action)
+* Go to [https://developer.apple.com/downloads/index.action](https://developer.apple.com/downloads/index.action)
 * Search for "Command Line Tools" and select the version appropriate for your operating system.
 * Install the command line tools from the downloaded file.
 
-## Install Homebrew
+## Install Homebrew (OSX Only)
 	
 * Install Command. 
 
@@ -94,6 +105,7 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 
 ## Install Sublimetext 3
 
+### OSX Only
 * Download the latest Sublime Text 3 build from [http://www.sublimetext.com/3](http://www.sublimetext.com/3).
 * Double-click the .dmg file to open it, and drag the icon into your 'Applications' folder.
 * Next, enter the following into your terminal - it will create a 'symlink', a shortcut that we can use to open Sublime from the command line. Do not skip this step!  
@@ -102,6 +114,27 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 $ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 ```
 		
+### Linux Only
+	
+* Add the PPA (personal package archive) for SublimeText 3 to apt and update your package directory.
+
+```bash
+$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
+$ sudo apt-get update
+```
+
+* Use apt to install SublimeText 3
+
+```bash
+$ sudo apt-get install sublime-text-installer
+```
+* Create a symlink shortcut for your terminal.
+
+```bash
+$ sudo ln -s /**wherever the binary for Sublime is** /bin/subl	
+```
+
+
 ### Configure Sublimetext
 
 Once Sublime Text is installed, there are a couple of modifications that you'll need to make before you're all set.
@@ -151,8 +184,22 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 
 ## Install Git 
 
+### OSX
 * ```$ brew update```
-* ```$ brew install git```  
+* ```$ brew install git``` 
+
+### Linux
+* Install libraries needed by Git.
+
+```bash
+sudo apt-get install build-essential git-core
+```  
+
+* Install Git.  
+```bash
+sudo apt-get install git
+```  
+ 
 
 ### Configure Git
 
@@ -255,23 +302,6 @@ Hi yourUsername! You've succesfully authenticated, but GitHub does not provide s
 			
 	You should get ruby 2.3.0 or higher.
 
-##Ubuntu Linux Users
-
-Commands that look like ```this``` should be entered into your Terminal
-application.
-
-1. __Open a terminal window__
-  * http://askubuntu.com/questions/196212/how-do-you-open-a-command-line
-
-2. __Install git__
-  * Install libraries needed by Git.  
-  	```sudo apt-get install build-essential git-core```  
-
-  * Install Git.  
-  	```sudo apt-get install git```  
-
-  * Follow the instructions for MacOS above to configure git.
-
 
 3. __Linking with GitHub.__  
 
@@ -301,63 +331,7 @@ just type 'yes'. If everything's working, you should get a response like the fol
 
 Hi yourUsername! You've succesfully authenticated, but GitHub does not provide shell access.
 
-
-4. __Install Sublimetext__
-	
-	* Add the PPA (personal package archive) for SublimeText 3 to apt and update your package directory.
-
-	```
-		$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
-		$ sudo apt-get update
-	```
-
-	* Use apt to install SublimeText 3
-
-		```
-		$ sudo apt-get install sublime-text-installer
-		```
-	* Create a symlink shortcut for your terminal.
-
-		```
-		$ sudo ln -s /**wherever the binary for Sublime is** /bin/subl	
-		```
- 	* Follow the the MacOS Sublimeimetext instructions above to finish configuring this editor.
-
-*	__Install RVM with Ruby 2.3.0__
-  	* ```\curl -L https://get.rvm.io | bash -s stable --ruby```
-  	* ```rvm use 2.3.0 --default```
-  	
-*	__Restart Your Terminal__
-
-*	__Make sure the latest versions of RVM and Ruby were installed__
-	*	run the commands below:
-		*	For RVM
-			*	```rvm -v```
-				
-				You should get rvm 1.0.0 or higher.
-		* 	For Ruby
-
-			*	```ruby -v```
-			
-				You should get ruby 2.3.0 or higher.
-
-
-	*	Make sure the latest versions of RVM and Ruby were installed, run the commands below:
-		*	For RVM
-			*	```rvm -v```
-				You should get rvm 1.0.0 or higher.
-		* 	For Ruby
-
-			*	```ruby -v```
-				You should get ruby 2.3.0 or higher.
-
-##Windows Users
-
-###Plan A
-
- * Rails installer - [Windows Rails installer](http://railsinstaller.org/en)
-
-###Plan B
+## Windows Users
 
 1. __Install VirtualBox__
   * https://www.virtualbox.org/wiki/Downloads
