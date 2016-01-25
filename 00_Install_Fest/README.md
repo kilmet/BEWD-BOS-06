@@ -17,12 +17,11 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 	* Type *Terminal* and hit the return/enter key. *This will start the `Terminal` application.*
 
 * __Setup Bash.__ *Bash runs in the Terminal and is a command language that we will be using.*  
-	No worries, it'll all become clear as we go.
-	* Check for `.bash_profile` and 	`.bashrc` files.  
-	
-		_These two files are run when we start a new Terminal. They setup the Bash environment._
-		* `$ ls -al ~/`  
-			Do you see `.bash_profile` and `.bashrc` in the list of files?
+
+	* Check for `.bash_profile` and `.bashrc` files. _These two files are run when we start a new Terminal. They setup the Bash environment._  
+		`$ ls -al ~/`  
+
+	* Do you see `.bash_profile` and `.bashrc` in the list of files?
 	* (Optional, if above files are NOT found). This will create an empty version of these files.  
 	 `$ touch .bash_profile` and `$ touch .bashrc`
 	* Append to bash files.  
@@ -61,7 +60,7 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 		/bin
 		/usr/sbin
 		/sbin
-```
+		```  
 
 * __Install Command Line Tools__  
 	* Run `$ xcode-select --install`.
@@ -72,7 +71,7 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 	* Search for "Command Line Tools" and select the version appropriate for your operating system.
 	* Install the command line tools from the downloaded file.
 
-* _Install Homebrew__  
+* __Install Homebrew__  
 	
 	* ```$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)""```
 	* The install page if you have trouble: [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
