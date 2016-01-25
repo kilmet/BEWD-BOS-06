@@ -26,7 +26,7 @@ Please reach out if you have any questions about anything or need help!
 
 __DOWNLOAD__	
 
--	Text Editor: 			[Sublime Text 2](http://www.sublimetext.com/2)
+-	Text Editor: 			[Sublime Text 3](http://www.sublimetext.com/3)
 -	Internet Browser: 		[Google Chrome](https://www.google.com/intl/en/chrome/browser/)
 
 __SIGN UP__
