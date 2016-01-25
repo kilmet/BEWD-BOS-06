@@ -4,96 +4,111 @@ BACK-END WEB DEVELOPMENT
 ![GeneralAssemb.ly](https://github.com/generalassembly/ga-ruby-on-rails-for-devs/raw/master/images/ga.png "GeneralAssemb.ly")
 
 
-#Install Git and Ruby
-
-##Mac Users 
+# Setup and Install.
 
 Commands that look like `$ this` should be entered into your Terminal application. The Terminal application can be found in Applications/Utilities. 
 
 *Ignore the `$` as it's just a convention used to indicate a __prompt__ for command in the terminal.*
 
-* **Start the terminal.** *Also known as the shell, console, command line.*   
-	* Select the magnifying glass in the menu on the upper right.
-	* Type *Terminal* and hit the return/enter key. *This will start the `Terminal` application.*
+## Start the terminal. _Also known as the shell, console, command line._  
+	* Select the magnifying glass in the menu on the upper right.  
+	* Type *Terminal* and hit the return/enter key. *This will start the `Terminal` application.  
 
-* __Setup Bash.__ *Bash runs in the Terminal and is a command language that we will be using.*  
+## Setup Bash. 
+ 
+ _Bash runs in the Terminal and is a command language that we will be using._  
 
-	* Check for `.bash_profile` and `.bashrc` files. _These two files are run when we start a new Terminal. They setup the Bash environment._  
-		`$ ls -al ~/`  
-
-	* Do you see `.bash_profile` and `.bashrc` in the list of files?
-	* (Optional, if above files are NOT found). This will create an empty version of these files.  
-	 `$ touch .bash_profile` and `$ touch .bashrc`
-	* Append to bash files.  
-
-		```$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile```  
-		```$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile```  
-	* Check bash files.  
-		*The `cat` command just prints out the contents of the file to the terminal.*
-
-		```
-			$ cd 
-			$ cat .bash_profile
-			$ cat .bashrc
-		```
-		 Near the bottom, you should have something that looks like this:
-
-		```
-		# ~/.bash_profile
-
-		$ export PATH=/usr/local/bin:$PATH
-		$ test -f ~/.bashrc && source ~/.bashrc
-		```  
-	* You will also need to update `/etc/paths` by running the following commands.
-
-		```
-		$ echo '/\/usr\/local\/bin/\nd\nwq' | sudo ed /etc/paths
-		$ echo '1i\n/usr/local/bin\n.\nwq' | sudo ed /etc/paths
-		```
-	* Finally, let's inspect our changes by typing `$ cat /etc/paths`. It should look like this:
-
-		```
-		# /etc/paths
-
-		/usr/local/bin
-		/usr/bin
-		/bin
-		/usr/sbin
-		/sbin
-		```  
-
-* __Install Command Line Tools__  
-	* Run `$ xcode-select --install`.
-	* You may have to install updates the "App Store".   
-	**OR**
-	* **Make sure you have an apple ID** (you should already have one).
-	*	[https://developer.apple.com/downloads/index.action](https://developer.apple.com/downloads/index.action)
-	* Search for "Command Line Tools" and select the version appropriate for your operating system.
-	* Install the command line tools from the downloaded file.
-
-* __Install Homebrew__  
-	
-	* ```$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)""```
-	* The install page if you have trouble: [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
-
-* __Install Sublimetext 3__  
-
-	* Download the latest Sublime Text 3 build from [http://www.sublimetext.com/3](http://www.sublimetext.com/3).
-	* Double-click the .dmg file to open it, and drag the icon into your 'Applications' folder.
-	* Next, enter the following into your terminal - it will create a 'symlink', a shortcut that we can use to open Sublime from the command line. Do not skip this step!  
-
-		```
-			$ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-		
-		```
-	
-* __Configure Sublimetext__
-
-	Once Sublime Text is installed, there are a couple of modifications that you'll need to make before you're all set.
-
-	Go to your Preferences in Sublime Text, open "Settings - User", and replace the entire contents with the following:
-	
+* Check for `.bash_profile` and `.bashrc` files.These two files are run when we start a new Terminal. They setup the Bash environment.  
+	```bash
+	$ ls -al ~/
 	```
+
+* Do you see `.bash_profile` and `.bashrc` in the list of files?  
+* (Optional, if above files are NOT found). This will create an empty version of these files.    
+	 ```bash
+	  $ touch .bash_profile
+	  $ touch .bashrc
+	  ```  
+* Append to bash files.  
+
+		
+	```bash
+	$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
+	$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile
+	``` 
+	
+* Check bash files.  
+
+	*The `cat` command just prints out the contents of the file to the terminal.*
+
+	```bash
+	$ cd 
+	$ cat .bash_profile
+	$ cat .bashrc
+	```  
+	
+	Near the bottom, you should have something that looks like this:
+
+	```bash
+	$ export PATH=/usr/local/bin:$PATH
+	$ test -f ~/.bashrc && source ~/.bashrc
+	```  
+	
+* You will also need to update `/etc/paths` by running the following commands.
+
+	```bash
+	$ echo '/\/usr\/local\/bin/\nd\nwq' | sudo ed /etc/paths
+	$ echo '1i\n/usr/local/bin\n.\nwq' | sudo ed /etc/paths
+	```
+	
+* Finally, let's inspect our changes by typing `$ cat /etc/paths`. It should look like this:
+
+	```bash
+	/usr/local/bin
+	/usr/bin
+	/bin
+	/usr/sbin
+	/sbin
+	```  
+
+## Install Command Line Tools
+* Run `$ xcode-select --install`.
+* You may have to install updates the "App Store".   
+	
+__OR__
+
+* __Make sure you have an apple ID__ (you should already have one).
+* Go to [https://developer.apple.com/downloads/index.action)(https://developer.apple.com/downloads/index.action)
+* Search for "Command Line Tools" and select the version appropriate for your operating system.
+* Install the command line tools from the downloaded file.
+
+## Install Homebrew
+	
+* Install Command. 
+
+```ruby
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)""
+```
+
+* The install page if you have trouble: [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
+
+## Install Sublimetext 3
+
+* Download the latest Sublime Text 3 build from [http://www.sublimetext.com/3](http://www.sublimetext.com/3).
+* Double-click the .dmg file to open it, and drag the icon into your 'Applications' folder.
+* Next, enter the following into your terminal - it will create a 'symlink', a shortcut that we can use to open Sublime from the command line. Do not skip this step!  
+
+```bash
+$ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+```
+		
+### Configure Sublimetext
+
+Once Sublime Text is installed, there are a couple of modifications that you'll need to make before you're all set.
+
+Go to your Preferences in Sublime Text, open "Settings - User", and replace the entire contents with the following:
+	
+```json
 	{
 	  "autocomplete_on_tab": false,
 	  "ensure_newline_at_eof_on_save": true,
@@ -108,131 +123,137 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 	  "word_wrap": true
 	}
 
-	```
+```
 	Note: If you've already made other customizations to this preferences file, you'll need to manually add them back later.
 	
-* __Install the Sublimetext Package Manager.__
+### Install the Sublimetext Package Manager.
 
-	* Hit ctrl + ` to enter the Sublime Text console.
-	* Paste in the following code in the console at the bottom of the editor.
+* Hit ctrl + ` to enter the Sublime Text console.
+* Paste in the following code in the console at the bottom of the editor.
+* Paste this into the console and hit return.
+```
+import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path();urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler())); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/'+ pf.replace(' ','%20')).read())
+```
 
-	* Paste this into the console and hit return.
-
-		```
-		import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublim\
-e.installed_packages_path(); urllib.request.install_opener( urllib.request.bui\
-ld_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb')\
-.write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%\
-20')).read())
-		```
-* __Install Sublimetext Add-On Packages.__
-	* Hit command + shift + p to enter the Command Pallette and enter install into the search bar to open the package manager.
-	* Install each of the following plugins:
-		* All Autocomplete  
-		* BeautifyRuby  
-		* Dotfiles Syntax Highlighting  
-		* GitGutter
-		* Handlebars
-		* HTML5
-		* jQuery
-		* Sass
-		* SideBarEnhancements
+### Install Sublimetext Add-On Packages.
+* Hit command + shift + p to enter the Command Pallette and enter install into the search bar to open the package manager.
+* Install each of the following plugins:
+	* All Autocomplete  
+	* BeautifyRuby  
+	* Dotfiles Syntax Highlighting  
+	* GitGutter
+	* Handlebars
+	* HTML5
+	* jQuery
+	* Sass
+	* SideBarEnhancements
 
 
-*	__Install Git__  
+## Install Git 
 
-	*	```$ brew update```
-	*	```$ brew install git```  
+* ```$ brew update```
+* ```$ brew install git```  
 
-* __Configure Git__
+### Configure Git
 
-	* Show the current Git branch in the terminal prompt. 
-	*  Open and edit the .bashrc file with Sublimeeditor.
+* Show the current Git branch in the terminal prompt. 
+*  Open and edit the .bashrc file with Sublimeeditor.
 	
-	```$ subl ~/.bashrc```
+```bash
+$ subl ~/.bashrc
+```
 		 
-	*  Paste the following code into the bottom of the .bashrc file.
+*  Paste the following code into the bottom of the .bashrc file.
 
-	```
-  	function parse_git_branch {
-    	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+```bash
+  function parse_git_branch {
+  	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
     	echo "("${ref#refs/heads/}")"
-  	}
-  	export PS1="\w \$(parse_git_branch)\$ "
-	```
+  }
+  export PS1="\w \$(parse_git_branch)\$ "
+```
+
+* Tweak Git's EDITOR variable so that commit message pop-ups open in Sublime.  
+
+```bash
+$ echo "export EDITOR='subl -w'" >> ~/.bashr
+```
+
+* Colorize git in the command line.  
+
+```bash
+$ git config --global color.ui true`
+```
+
+* Set up a global 'excludesfile', listing all the files that we might want git to ignore.  
+
+```bash
+$ git config --global core.excludesfile ~/.gitignore
+$ echo ".DS_Store" >> ~/.gitignore
+```
+* Set a default user.
+
+```
+$ git config --global user.name "yourUsername"
+$ git config --global user.email "your_email@example.com"
+```
+
+### Linking with GitHub.
+
+In order to push commits to GitHub from the command 	line, we need Git and GitHub to have a matching set of SSH keys.
 	
-	* Tweak Git's EDITOR variable so that commit message pop-ups open in Sublime.  
+* Generate a new key by running:
 
-	```
-	$ echo "export EDITOR='subl -w'" >> ~/.bashr
-	```
+```bash
+$ ssh-keygen -t rsa -C "your_email@example.com"
+```
 
-	* Colorize git in the command line.  
+(feel free to put in a password or select a non-default location for your keys, but it's not necessary to do so; to move ahead, just keep hitting enter).  
 
-	```
-	$ git config --global color.ui true`
-	```
+* Add this new key to your system by running.
 
-	* Set up a global 'excludesfile', listing all the files that we might want git to ignore.  
+```bash
+$ ssh-add ~/.ssh/id_rsa
+```  
 
-	```
-	$ git config --global core.excludesfile ~/.gitignore
-	$ echo ".DS_Store" >> ~/.gitignore
-	```
+* Copy the new key to your clipboard using either.
+
+```bash
+pbcopy < ~/.ssh/id_rsa.pub
+``` 
 	
-	* Set a default user.
+* Then, log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
 
-	```
-	$ git config --global user.name "yourUsername"
-	$ git config --global user.email "your_email@example.com"
-	```
+```bash
+$ ssh -T git@github.com
+```
 
+If you get a prompt along the lines of
 
-* __Linking with GitHub.__  
-
-	In order to push commits to GitHub from the command 	line, we need Git and GitHub to have a matching set of SSH keys.
-	
-	* Generate a new key by running:
-	```$ ssh-keygen -t rsa -C "your_email@example.com" ```
-		(feel free to put in a password or select a non-default location for your keys, but it's not necessary to do so; to move ahead, just keep hitting enter).  
-
-	* Add this new key to your system by running.
-		```$ ssh-add ~/.ssh/id_rsa```  
-
-	* Copy the new key to your clipboard using either.
-	```pbcopy < ~/.ssh/id_rsa.pub``` 
-	
-	* Then, log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
-
-	```$ ssh -T git@github.com```
-
-	If you get a prompt along the lines of
-
-  The authenticity of host 'github.com (xxx.xxx.xxx.xxx)'... can't be established.
-  RSA key fingerprint is XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX.
-  Are you sure you want to continue connecting (yes/no)?
+The authenticity of host 'github.com (xxx.xxx.xxx.xxx)'... can't be established.
+RSA key fingerprint is XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX.
+Are you sure you want to continue connecting (yes/no)?
 just type 'yes'. If everything's working, you should get a response like the following:
 
 Hi yourUsername! You've succesfully authenticated, but GitHub does not provide shell access.
 
 
-*	__Install RVM with Ruby 2.3.0__
-  	* ```\curl -L https://get.rvm.io | bash -s stable --ruby```
-  	* ```rvm use 2.3.0 --default```
-  	
-*	__Restart Your Terminal__
+## Install RVM with Ruby 2.3.0
 
-*	__Make sure the latest versions of RVM and Ruby were installed__
-	*	run the commands below:
-		*	For RVM
-			*	```rvm -v```
+* ```\curl -L https://get.rvm.io | bash -s stable --ruby```
+* ```rvm use 2.3.0 --default```
+* __Restart Your Terminal__
+* __Make sure the latest versions of RVM and Ruby were installed__
+* Run the commands below:
+	* For RVM
+		* ```rvm -v```
 				
-				You should get rvm 1.0.0 or higher.
-		* 	For Ruby
-
-			*	```ruby -v```
+	You should get rvm 1.0.0 or higher.
+		
+	* For Ruby
+		* ```ruby -v```
 			
-				You should get ruby 2.3.0 or higher.
+	You should get ruby 2.3.0 or higher.
 
 ##Ubuntu Linux Users
 
