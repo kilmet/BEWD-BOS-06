@@ -10,25 +10,26 @@ BACK-END WEB DEVELOPMENT
 
 Commands that look like `$ this` should be entered into your Terminal application. It can be found in Applications/Utilities. 
 
-*Ignore the `$` as it's just a convention used to indicate a command in the terminal.*
+*Ignore the `$` as it's just a convention used to indicate a **prompt** for command in the terminal.*
 
 * **Start the terminal.** *Also known as the shell, console, command line.*   
-	__OSX__  
-
 	* Select the magnifying glass in the menu on the upper right.
-	* Type *Terminal* and hit the return/enter. *This will start the `Terminal` application.*
+	* Type *Terminal* and hit the return/enter key. *This will start the `Terminal` application.*
 
 * __Setup Bash.__ *Bash runs in the Terminal and is a command language that we will be using.*  
 	No worries, it'll all become clear as we go.
 	* Check for `.bash_profile` and 	`.bashrc` files.  
 	
 		_These two files are run when we start a new Terminal. They setup the Bash environment._
-		* `$ ls -al ~/`
-	* (Optional, if above files are NOT found) `$ touch .bash_profile` and `$ touch .bashrc`
+		* `$ ls -al ~/`  
+			Do you see `.bash_profile` and `.bashrc` in the list of files?
+	* (Optional, if above files are NOT found). This will create an empty version of these files.  
+	 `$ touch .bash_profile` and `$ touch .bashrc`
 	* Append to bash files. 
 		```$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile```  
 		```$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile```  
-	* Check bash files.
+	* Check bash files.  
+		*The `cat` command just prints out the contents of the file to the terminal.*
 
 		```
 			$ cd 
@@ -61,7 +62,7 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 		/sbin
 ```
 
-* __(OSX ONLY) Install Command Line Tools__
+* __Install Command Line Tools__
 	* Run `$ xcode-select --install`.
 	* You may have to install updates the "App Store".   
 	**OR**
@@ -70,13 +71,12 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 	* Search for "Command Line Tools" and select the version appropriate for your operating system.
 	* Install the command line tools from the downloaded file.
 
-* __(OSX ONLY) Install Homebrew__ 
+* _Install Homebrew__ 
 	
 	* ```$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)""```
 	* The install page if you have trouble: [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
 
 * 	__Install Sublimetext 3__.   
-	__OSX__  
 	* Download the latest Sublime Text 3 build from [http://www.sublimetext.com/3](http://www.sublimetext.com/3).
 	* Double-click the .dmg file to open it, and drag the icon into your 'Applications' folder.
 	* Next, enter the following into your terminal - it will create a 'symlink', a shortcut that we can use to open Sublime from the command line. Do not skip this step!  
@@ -86,25 +86,6 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 		
 		```
 	
-	__Linux__  		
-	
-	* Add the PPA (personal package archive) for SublimeText 3 to apt and update your package directory.
-
-	```
-		$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
-		$ sudo apt-get update
-	```
-
-	* Use apt to install SublimeText 3
-
-		```
-		$ sudo apt-get install sublime-text-installer
-		```
-	* Create a symlink shortcut for your terminal.
-
-		```
-		$ sudo ln -s /**wherever the binary for Sublime is** /bin/subl	
-		```
 * __Configure Sublimetext__
 
 	Once Sublime Text is installed, there are a couple of modifications that you'll need to make before you're all set.
@@ -159,12 +140,8 @@ ld_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb')\
 
 *	__Install Git__  
 
-	__OSX__
 	*	```$ brew update```
 	*	```$ brew install git```  
-
-	__Linux__  
-	* ```$ sudo apt-get install git```
 
 * __Configure Git__
 
@@ -221,10 +198,9 @@ ld_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb')\
 	* Add this new key to your system by running.
 		```$ ssh-add ~/.ssh/id_rsa```  
 
-	* __(OS X)__ Copy the new key to your clipboard using either.
+	* Copy the new key to your clipboard using either.
 	```pbcopy < ~/.ssh/id_rsa.pub``` 
 	
-	* __(Linux)__ xclip -selection clipboard < ~/.ssh/id_rsa.pub 
 	* Then, log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
 
 	```$ ssh -T git@github.com```
@@ -239,13 +215,13 @@ just type 'yes'. If everything's working, you should get a response like the fol
 Hi yourUsername! You've succesfully authenticated, but GitHub does not provide shell access.
 
 
-6.	__Install RVM with Ruby 2.3.0__
+*	__Install RVM with Ruby 2.3.0__
   	* ```\curl -L https://get.rvm.io | bash -s stable --ruby```
   	* ```rvm use 2.3.0 --default```
   	
-7.	__Restart Your Terminal__
+*	__Restart Your Terminal__
 
-8.	__Make sure the latest versions of RVM and Ruby were installed__
+*	__Make sure the latest versions of RVM and Ruby were installed__
 	*	run the commands below:
 		*	For RVM
 			*	```rvm -v```
@@ -255,9 +231,7 @@ Hi yourUsername! You've succesfully authenticated, but GitHub does not provide s
 
 			*	```ruby -v```
 			
-				You should get ruby 2.0.0p0 or higher.
-
-9. Setup sublime terminal command [https://www.sublimetext.com/docs/2/osx_command_line.html](https://www.sublimetext.com/docs/2/osx_command_line.html)
+				You should get ruby 2.3.0 or higher.
 
 ##Ubuntu Linux Users
 
@@ -268,19 +242,84 @@ application.
   * http://askubuntu.com/questions/196212/how-do-you-open-a-command-line
 
 2. __Install git__
-  * ```sudo apt-get install build-essential git-core```
-  * Set your git name and email:
-    * https://help.github.com/articles/setting-your-email-in-git
-    * https://help.github.com/articles/setting-your-username-in-git
+  * Install libraries needed by Git.  
+  	```sudo apt-get install build-essential git-core```  
 
-3. __Install curl__
-  * ```sudo apt-get install curl```
+  * Install Git.  
+  	```sudo apt-get install git```  
 
-4. __Install RVM__
-  * ```\curl -L https://get.rvm.io | bash -s stable --ruby```
-  * The backslash in font of "curl" is not a typo.
-  *	Close and reopen terminal
-  * ```rvm use 2.0.0 --default```
+  * Follow the instructions for MacOS above to configure git.
+
+
+3. __Linking with GitHub.__  
+
+In order to push commits to GitHub from the command 	line, we need Git and GitHub to have a matching set of SSH keys.
+
+* Generate a new key by running. 
+	
+	```$ ssh-keygen -t rsa -C "your_email@example.com" ```
+		(feel free to put in a password or select a non-default location for your keys, but it's not necessary to do so; to move ahead, just keep hitting enter).  
+
+* Add this new key to your system by running.
+		```$ ssh-add ~/.ssh/id_rsa```  
+
+* Copy the new key to your clipboard using either.
+	```xclip -selection clipboard < ~/.ssh/id_rsa.pub ```  
+
+* Then, log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
+
+	```$ ssh -T git@github.com```
+
+	If you get a prompt along the lines of
+
+  The authenticity of host 'github.com (xxx.xxx.xxx.xxx)'... can't be established.
+  RSA key fingerprint is XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX.
+  Are you sure you want to continue connecting (yes/no)?
+just type 'yes'. If everything's working, you should get a response like the following:
+
+Hi yourUsername! You've succesfully authenticated, but GitHub does not provide shell access.
+
+
+4. __Install Sublimetext__
+	
+	* Add the PPA (personal package archive) for SublimeText 3 to apt and update your package directory.
+
+	```
+		$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
+		$ sudo apt-get update
+	```
+
+	* Use apt to install SublimeText 3
+
+		```
+		$ sudo apt-get install sublime-text-installer
+		```
+	* Create a symlink shortcut for your terminal.
+
+		```
+		$ sudo ln -s /**wherever the binary for Sublime is** /bin/subl	
+		```
+ 	* Follow the the MacOS Sublimeimetext instructions above to finish configuring this editor.
+
+*	__Install RVM with Ruby 2.3.0__
+  	* ```\curl -L https://get.rvm.io | bash -s stable --ruby```
+  	* ```rvm use 2.3.0 --default```
+  	
+*	__Restart Your Terminal__
+
+*	__Make sure the latest versions of RVM and Ruby were installed__
+	*	run the commands below:
+		*	For RVM
+			*	```rvm -v```
+				
+				You should get rvm 1.0.0 or higher.
+		* 	For Ruby
+
+			*	```ruby -v```
+			
+				You should get ruby 2.3.0 or higher.
+
+
 	*	Make sure the latest versions of RVM and Ruby were installed, run the commands below:
 		*	For RVM
 			*	```rvm -v```
@@ -288,7 +327,7 @@ application.
 		* 	For Ruby
 
 			*	```ruby -v```
-				You should get ruby 2.0.0p0 or higher.
+				You should get ruby 2.3.0 or higher.
 
 ##Windows Users
 
