@@ -8,9 +8,9 @@ BACK-END WEB DEVELOPMENT
 
 ##Mac Users 
 
-Commands that look like `$ this` should be entered into your Terminal application. It can be found in Applications/Utilities. 
+Commands that look like `$ this` should be entered into your Terminal application. The Terminal application can be found in Applications/Utilities. 
 
-*Ignore the `$` as it's just a convention used to indicate a **prompt** for command in the terminal.*
+*Ignore the `$` as it's just a convention used to indicate a __prompt__ for command in the terminal.*
 
 * **Start the terminal.** *Also known as the shell, console, command line.*   
 	* Select the magnifying glass in the menu on the upper right.
@@ -25,7 +25,8 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 			Do you see `.bash_profile` and `.bashrc` in the list of files?
 	* (Optional, if above files are NOT found). This will create an empty version of these files.  
 	 `$ touch .bash_profile` and `$ touch .bashrc`
-	* Append to bash files. 
+	* Append to bash files.  
+
 		```$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile```  
 		```$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile```  
 	* Check bash files.  
@@ -62,7 +63,7 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 		/sbin
 ```
 
-* __Install Command Line Tools__
+* __Install Command Line Tools__  
 	* Run `$ xcode-select --install`.
 	* You may have to install updates the "App Store".   
 	**OR**
@@ -71,12 +72,13 @@ Commands that look like `$ this` should be entered into your Terminal applicatio
 	* Search for "Command Line Tools" and select the version appropriate for your operating system.
 	* Install the command line tools from the downloaded file.
 
-* _Install Homebrew__ 
+* _Install Homebrew__  
 	
 	* ```$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)""```
 	* The install page if you have trouble: [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
 
-* 	__Install Sublimetext 3__.   
+* __Install Sublimetext 3__  
+
 	* Download the latest Sublime Text 3 build from [http://www.sublimetext.com/3](http://www.sublimetext.com/3).
 	* Double-click the .dmg file to open it, and drag the icon into your 'Applications' folder.
 	* Next, enter the following into your terminal - it will create a 'symlink', a shortcut that we can use to open Sublime from the command line. Do not skip this step!  
