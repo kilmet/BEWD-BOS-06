@@ -290,24 +290,87 @@ just type 'yes'. If everything's working, you should get a response like the fol
 
 Hi yourUsername! You've succesfully authenticated, but GitHub does not provide shell access.
 
+## Rbenv
 
-## Install RVM with Ruby 2.3.0
+Rbenv is a tool that we can use to manage multiple versions of Ruby and determine which version we use for a particular project.
 
-* ```\curl -L https://get.rvm.io | bash -s stable --ruby```
-* ```rvm use 2.3.0 --default```
-* __Restart Your Terminal__
-* __Make sure the latest versions of RVM and Ruby were installed__
-* Run the commands below:
-	* For RVM
-		* ```rvm -v```
-				
-	You should get rvm 1.0.0 or higher.
-		
-	* For Ruby
-		* ```ruby -v```
-			
-	You should get ruby 2.3.0 or higher.
+### Install Rbenv
 
+#### OS X
+
+* Run ```brew install rbenv```
+
+#### Linux
+
+Copy and paste this entire line into your terminal and run it.
+
+```bash
+curl https://raw.githubusercontent.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+```
+
+### Set Bash Path variable.
+
+#### OS X
+  
+Tell Rbenv to use homebrew's directories instead of rbenv's
+  
+Open ~/.bashrc and paste in the following code BEFORE the stuff you pasted in about Git.
+
+```bash
+export RBENV_ROOT=/usr/local/var/rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+```
+
+#### Linux
+
+Open ~/.bashrc and paste in the following code BEFORE the stuff you pasted in about Git.
+
+```bash
+export RBENV_ROOT="${HOME}/.rbenv"
+if [ -d "${RBENV_ROOT}" ]; then
+	export PATH="${RBENV_ROOT}/bin:${PATH}"
+    eval "$(rbenv init -)"
+fi
+```
+
+Once you've done this, run source ~/.bashrc to reload the terminal's settings.
+
+#### OSX  
+Install a tool to re-hash gems after each installation (Linux users, unfortunately must do this manually).
+
+```brew install rbenv-gem-rehash```
+
+Then download a package with a number of common gems.
+
+```brew install rbenv-default-gems```
+
+#### Linux
+Rbenv on Linux depends on another library called libffi-dev. Download and install it with the following command.
+
+```sudo apt-get install libffi-dev```
+
+### Install ruby-build, a plugin for rbenv.
+
+#### OS X
+
+
+```brew install ruby-build```
+
+#### Linux
+
+```git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build```
+
+rbenv install ruby-build
+
+### Install version Ruby 2.3.0.
+And make it the system-wide default using the command
+
+```rbenv install 2.3.0 && rbenv global 2.3.0
+
+You can see what versions of Ruby rbenv has downloaded by running rbenv versions; to see which version you are currently using, type either rbenv version or ruby -v.
+
+```ruby -v```
 
 ## Windows Users
 
