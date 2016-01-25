@@ -61,8 +61,8 @@ $ cat .bashrc
 Near the bottom, you should have something that looks like this:
 
 ```bash
-$ export PATH=/usr/local/bin:$PATH
-$ test -f ~/.bashrc && source ~/.bashrc
+export PATH=/usr/local/bin:$PATH
+test -f ~/.bashrc && source ~/.bashrc
 ```  
 	
 * You will also need to update `/etc/paths` by running the following commands.
@@ -203,7 +203,8 @@ sudo apt-get install git
 
 ### Configure Git
 
-* Show the current Git branch in the terminal prompt. 
+This will show the current Git branch in the terminal prompt.  
+
 *  Open and edit the .bashrc file with Sublimeeditor.
 	
 ```bash
@@ -263,12 +264,17 @@ $ ssh-keygen -t rsa -C "your_email@example.com"
 $ ssh-add ~/.ssh/id_rsa
 ```  
 
-* Copy the new key to your clipboard using either.
+* __(OSX Only)__ Copy the new key to your clipboard.
 
 ```bash
 pbcopy < ~/.ssh/id_rsa.pub
 ``` 
-	
+
+* __(Linux Only)__ Copy the new key to your clipboard.
+
+```bash
+xclip -selection clipboard < ~/.ssh/id_rsa.pub
+```  	
 * Then, log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
 
 ```bash
@@ -302,34 +308,6 @@ Hi yourUsername! You've succesfully authenticated, but GitHub does not provide s
 			
 	You should get ruby 2.3.0 or higher.
 
-
-3. __Linking with GitHub.__  
-
-In order to push commits to GitHub from the command 	line, we need Git and GitHub to have a matching set of SSH keys.
-
-* Generate a new key by running. 
-	
-	```$ ssh-keygen -t rsa -C "your_email@example.com" ```
-		(feel free to put in a password or select a non-default location for your keys, but it's not necessary to do so; to move ahead, just keep hitting enter).  
-
-* Add this new key to your system by running.
-		```$ ssh-add ~/.ssh/id_rsa```  
-
-* Copy the new key to your clipboard using either.
-	```xclip -selection clipboard < ~/.ssh/id_rsa.pub ```  
-
-* Then, log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
-
-	```$ ssh -T git@github.com```
-
-	If you get a prompt along the lines of
-
-  The authenticity of host 'github.com (xxx.xxx.xxx.xxx)'... can't be established.
-  RSA key fingerprint is XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX:XX.
-  Are you sure you want to continue connecting (yes/no)?
-just type 'yes'. If everything's working, you should get a response like the following:
-
-Hi yourUsername! You've succesfully authenticated, but GitHub does not provide shell access.
 
 ## Windows Users
 
