@@ -18,7 +18,7 @@ _Also known as the shell, console or command line._
 ### OSX
 
 * Select the magnifying glass in the menu on the upper right.  
-* Type *Terminal* and hit the return/enter key. *This will start the `Terminal` application.  
+* Type *Terminal* and hit the return/enter key. 
 
 ### Linux
 
@@ -29,41 +29,48 @@ _Also known as the shell, console or command line._
 _Bash runs in the Terminal and is a command language that we will be using._  
 
 * Check for `.bash_profile` and `.bashrc` files.These two files are run when we start a new Terminal. They setup the Bash environment.  
-	```bash
-	$ ls -al ~/
-	```
 
-* Do you see `.bash_profile` and `.bashrc` in the list of files?  
-* (Optional, if above files are NOT found). This will create an empty version of these files.    
-
-```bash
-$ touch .bash_profile
-$ touch .bashrc
-```  
-
-* Append to bash files.  
-
-```bash
-$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
-$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile
-``` 
-	
-* Check bash files.  
-
-_The `cat` command just prints out the contents of the file to the terminal._
+	_The `cat` command just prints out the contents of the file to the terminal._
 
 ```bash
 $ cd 
 $ cat .bash_profile
 $ cat .bashrc
+``` 
+* (If above files are NOT found). This will create an empty version of these files.    
+
+```bash
+$ touch .bash_profile
+$ touch .bashrc
 ```  
-	
-Near the bottom, you should have something that looks like this:
+ 
+* Near the bottom, you should have something that looks like this, `cat .bash_profile`
 
 ```bash
 export PATH=/usr/local/bin:$PATH
 test -f ~/.bashrc && source ~/.bashrc
 ```  
+
+* (If you don't have the above in the `.bash_profile`) Append to bash files.  
+
+```bash
+$ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
+$ echo 'test -f ~/.bashrc && source ~/.bashrc' >> ~/.bash_profile
+``` 
+
+* Now you should definitely see the below at the bottom of the `.bash_profile`. 
+
+```bash
+cat .bash_profile
+```
+
+Contents of `.bash_profile`
+```bash
+export PATH=/usr/local/bin:$PATH
+test -f ~/.bashrc && source ~/.bashrc
+```  
+	
+
 	
 * You will also need to update `/etc/paths` by running the following commands.
 
@@ -83,8 +90,8 @@ $ echo '1i\n/usr/local/bin\n.\nwq' | sudo ed /etc/paths
 ```  
 
 ## Install Command Line Tools (OSX Only)
-* Run `$ xcode-select --install`.
-* You may have to install updates the "App Store".   
+* Run `$ xcode-select --install`
+* You may have to install updates.
 	
 __OR__
 
@@ -95,13 +102,13 @@ __OR__
 
 ## Install Homebrew (OSX Only)
 	
-* Install Command. 
+* Install homebrew.
 
 ```ruby
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)""
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-* The install page if you have trouble: [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
+* Use this install page if you have trouble: [http://mxcl.github.io/homebrew/](http://mxcl.github.io/homebrew/)
 
 ## Install Sublimetext 3
 
@@ -134,8 +141,9 @@ $ sudo apt-get install sublime-text-installer
 $ sudo ln -s /**wherever the binary for Sublime is** /bin/subl	
 ```
 
-
 ### Configure Sublimetext
+
+__Skip this if you have already configured Sublimetext to your liking.__
 
 Once Sublime Text is installed, there are a couple of modifications that you'll need to make before you're all set.
 
@@ -161,16 +169,17 @@ Go to your Preferences in Sublime Text, open "Settings - User", and replace the 
 	
 ### Install the Sublimetext Package Manager.
 
-* Hit ctrl + ` to enter the Sublime Text console.
-* Paste in the following code in the console at the bottom of the editor.
-* Paste this into the console and hit return.
+* Hit ctrl + ` to enter the Sublimetext console. _This will show an area at the bottom._
+* Paste in the following code in the console at the bottom of the editor and hit return.
+
 ```
 import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path();urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler())); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/'+ pf.replace(' ','%20')).read())
 ```
 
 ### Install Sublimetext Add-On Packages.
-* Hit command + shift + p to enter the Command Pallette and enter install into the search bar to open the package manager.
-* Install each of the following plugins:
+* Hit command + shift + p to enter the Command Pallette and enter `Install Package` into the search bar.
+* Select `Package Control: Install Package` in the dropdown and hit return.
+* Install each of the following plugins: _Each can be installed by starting to type the name of the plugin, then selecting the plugin from the dropdown._
 	* All Autocomplete  
 	* BeautifyRuby  
 	* Dotfiles Syntax Highlighting  
@@ -185,8 +194,16 @@ import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.
 ## Install Git 
 
 ### OSX
-* ```$ brew update```
-* ```$ brew install git``` 
+* Update Homebrew to have the lastest versions of the software it has already install.
+
+```bash
+$ brew update
+```
+* Install Git with Homebrew.
+
+```bash
+$ brew install git
+``` 
 
 ### Linux
 * Install libraries needed by Git.
@@ -208,7 +225,7 @@ This will show the current Git branch in the terminal prompt.
 *  Open and edit the .bashrc file with Sublimeeditor.
 	
 ```bash
-$ subl ~/.bashrc
+$ subl .bashrc
 ```
 		 
 *  Paste the following code into the bottom of the .bashrc file.
@@ -250,32 +267,32 @@ $ git config --global user.email "your_email@example.com"
 
 In order to push commits to GitHub from the command 	line, we need Git and GitHub to have a matching set of SSH keys.
 	
-* Generate a new key by running:
+* Generate a new public and privagte key in the `.ssh` directory by running:
 
 ```bash
 $ ssh-keygen -t rsa -C "your_email@example.com"
 ```
 
-(feel free to put in a password or select a non-default location for your keys, but it's not necessary to do so; to move ahead, just keep hitting enter).  
+(Keep hitting enter until command is done.)
 
-* Add this new key to your system by running.
+* Add this new key to your local system by running.
 
 ```bash
 $ ssh-add ~/.ssh/id_rsa
 ```  
 
-* __(OSX Only)__ Copy the new key to your clipboard.
+* __(OSX Only)__ Copy the new key to your system's clipboard.
 
 ```bash
 pbcopy < ~/.ssh/id_rsa.pub
 ``` 
 
-* __(Linux Only)__ Copy the new key to your clipboard.
+* __(Linux Only)__ Copy the new key to your system's clipboard.
 
 ```bash
 xclip -selection clipboard < ~/.ssh/id_rsa.pub
 ```  	
-* Then, log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
+* Log into GitHub.com, go to https://github.com/settings/ssh, and paste in your SSH key. To test it out, type the following into the command line:
 
 ```bash
 $ ssh -T git@github.com
