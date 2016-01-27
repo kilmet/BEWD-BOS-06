@@ -62,17 +62,39 @@ The computer filesystem consists of all the directories and files on that comput
 Here we see that the __root__ of the filesystem is "El Capitian Restore". Yours may be named "Machintosh HD".
 
 ##### Definition: Root directory
-Is the top level directory in the tree structure that makes up your project or the **file system**.
+Is the top level directory in the tree structure that makes up your project or the **file system**. To change to the __root__ directory we can run `cd /` on the command line.
+
+##### Definition: Home directory
+This is the default directory for a specific user. In the above image we can see that the joanne and tdyer accounts have __home__ directories, `/Users/joanne` and `/Users/tdyer`. Note: that `~` and `~/` are shortcuts or an __alias__ to the __home__ directory.
+
+##### Definition: Path
+The location of a file or directory expressed in a slash, `/`, separated path. 
+
+There are __two__ types of paths. 
 
 ##### Definition: Absolute path
-An absolute path shows the location of a file or directory within the system's filesystem hierarchy.
-
-A __path__ is just a representation of where a file or directory is located with the system's filesystem hierarchy. 
-
-Absolute paths:  
+An absolute path shows the location of a file or directory within the system's filesystem hierarchy __relative to the root directory__.
 
 * Always start with a leading slash, '/'
 * Are relative to the root directory of the file system.
+
+For example:
+* `/Users/johndoe` is the path to johndoe's __home__ directory.
+* `/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl` is the path to the program/binary for Sublimetexteditor.
+
+Relative paths:  
+
+* __Never__ start with a leading slash, '/'
+* Are relative to the current directory that one is in.
+
+For example.
+```
+cd 
+cd temp/ExampleRailsApplication
+```
+
+This will change directory, `cd `, to the logged in user's __home__ directory. The change in the subdirectory temp and it's subdirectory ExampleRailsApplication.
+
 
 ## You Do.
 * Open up the Finder and go to the root directory of your filesystem.
