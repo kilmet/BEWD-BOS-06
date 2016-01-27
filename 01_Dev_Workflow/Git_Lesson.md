@@ -382,7 +382,11 @@ Meg Brown,978-453-8984,megb@example.com,manager
 
 ## You Do.
 
-Working with your team/squad. Draw a representation of the git branches and each commit. Don't forget the connection/s between the commit and the multiple branches.
+Work through this lab, [Git Lab](Git_Lab.md).
+
+There are some new git commands in this Lab but they should be explained well in the references given in the lab and below. 
+
+If not, we should discuss as a class. Learning and Teaching each other is a very productive exercise.
 
 ## We Do.
 
@@ -394,7 +398,7 @@ Working with your team/squad. Draw a representation of the git branches and each
 
 
 ## References
-* [Git Commands](command-reference.md)
+* [Git Commands](git-command-reference.md)
 * [Visualizing Git Commands](http://www.wei-wang.com/ExplainGitWithD3/)
 * [Git Book](https://git-scm.com/book/en/v2)
 * [Pro Git](https://progit.org/)

@@ -22,7 +22,7 @@ Times below are an approximation
 | ------------- |:-------------|:-------------------|:-------------------|
 | 45 min | __Command Line__| [CLI Overview/Lesson](CLI_Lesson.md)
 | 10 min | __Break__ | 
-| 45 min | __Git__ | Let's learn Git Version Control for preserve and manage our work.
+| 45 min | __Git__ | [Let's learn Git Version Control for preserve and manage our work.](Git_Lesson.md)
 | 10 min | __Break__ | 
 | 45 min | __Using GitHub__ | Let's learn how we can back up preserve project changes stored on Github |
 | 24 min | __Review, Discussion, Assignments__ | 

@@ -1,4 +1,11 @@
-# Lab
+![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
+
+# Lab (You do, please)
+
+Use this as a reference! [Git Commands](git-command-reference.md)
+
+And for more in-depth info.
+[Pro Git](https://progit.org/) OR [Git Book](https://git-scm.com/book/en/v2)
 
 ### Initialize empty repo
 
@@ -12,7 +19,7 @@
 * `touch animals.md`
 * `subl .`
 * Open the file using the sidebar or `Cmd+P`
-* Add a header and list some favorite animals
+* List some favorite animals
 * `git add animals.md`
 * `git commit`
 * Write a good commit message! (see link in reference)
