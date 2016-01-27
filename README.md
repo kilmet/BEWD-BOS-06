@@ -15,7 +15,7 @@ During the first lesson, you should make a copy of this repo for your own person
 From the terminal, clone by typing:
 
 ```bash
-git clone https://github.com/<YOUR USERNAME>/BEWD_BOS_05.git
+git clone https://github.com/<YOUR USERNAME>/BEWD_BOS_06.git
 
 ```
 
@@ -24,7 +24,7 @@ In addition, you should create a link to the instructor's copy on GitHub (add an
 From the terminal, add an upstream remote by typing:
 
 ```bash
-git remote add upstream git@github.com:ga-students/BEWD-BOS-05.git
+git remote add upstream git@github.com:ga-students/BEWD-BOS-06.git
 ```
 
 Verify you added both remotes by typing:
@@ -72,42 +72,14 @@ git push origin master
 
 See this [link](https://help.github.com/articles/fork-a-repo) for more detailed information on fork, upstream, pull, and push:
 
-
-###How Do I Post Files To GitHub?
-
-Yes, you may have your files locally on your computer but consider pushing them to the cloud. Here are some benefits.
-
-*	Easily share your homework with the instructional team for grading.
-*	Share your files with your teammates.
-
-To __push__ files to GitHub:
-
-From the terminal type:
-(make sure you are in the correct directory)
-
-```bash
-git add name_and_path_of_files_you_want_to_push
-```
-
-```bash
-git commit -m "Enter commit message"
-```
-
-```bash
-git push origin master
-```
-
-See this [link](https://help.github.com/articles/fork-a-repo) for more detailed information on fork, upstream, pull, and push:
-
-
 ###How Do I Submit Homework?
 
 To submit homework, you can follow these steps:
 
-1. First, CD into the place where you store your BEWD files. For many of you this is in either your `BEWD_BOS_05 folder`
+1. First, CD into the place where you store your BEWD files. For many of you this is in either your `BEWD_BOS_06 folder`
 
 ```
-cd BEWD_BOS_05
+cd BEWD_BOS_06
 ```
 
 2. Copy the homework into your personal directory. You'll want to replace `Secret_Number` and `Brooks Swinnerton` with the homework we're working on and your name respectively:
