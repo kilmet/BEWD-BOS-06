@@ -24,15 +24,15 @@ Times below are an approximation
 | 10 min | __Break__ | 
 | 45 min | __Git__ | [Let's learn Git Version Control for preserve and manage our work.](Git_Lesson.md)
 | 10 min | __Break__ | 
-| 45 min | __Using GitHub__ | Let's learn how we can back up preserve project changes stored on Github |
+| 45 min | __Using GitHub__ | [Let's learn how we can back up preserve project changes stored on Github](Github_Lesson.md) |
 | 24 min | __Review, Discussion, Assignments__ | 
 
 
 ###Homework
 
-*	Review bash and git commands.
-* Fork and clone [Color masters project](https://github.com/tdyer/wdi_1_git_lab_colormaster)
-* Complete Color masters project.
+* Review bash and git commands.
+* Fork, clone and submit pull requests for the [Color masters project](https://github.com/tdyer/wdi_1_git_lab_colormaster). See the bottom of the [Using Github Lesson](Github_Lesson.md)
+
 
 
 
