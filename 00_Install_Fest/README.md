@@ -356,7 +356,13 @@ Once you've done this, run source ~/.bashrc to reload the terminal's settings.
 #### OSX  
 Install a tool to re-hash gems after each installation (Linux users, unfortunately must do this manually).
 
-```brew install rbenv-gem-rehash```
+```brew install rbenv-gem-rehash``` 
+
+__If this fails, `Error: No available formula...` then do this.__
+
+```bash
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+```
 
 Then download a package with a number of common gems.
 
