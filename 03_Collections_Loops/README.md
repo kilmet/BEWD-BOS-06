@@ -27,6 +27,6 @@ Times below are an approximation
 
 ###Homework
 
--	Secret Number is due next class (lesson 4)
+-	[Ruby MBTA HW](https://github.com/tdyer/ruby_hw_mbta_simplified) is due next class (lesson 4)
 
 
