@@ -17,11 +17,11 @@ Times below are an approximation
 
 | Time        | Topic|Comments|
 | ------------- |:-------------|:-------------|
-| 20 min | Review| Review variables and conditional logic |
-| 25 min | Iteration | Loops |
-| 50 min | Arrays| Collections of data|
-| 25 min | Hases | Collections of data |
-| 60 min | Lab Time| Happy Coding :)|
+| 20 min | [Review](https://github.com/tdyer/ruby-basics)| Review variables and conditional logic |
+| 25 min | [Iteration](https://github.com/tdyer/ruby-basics) | Loops |
+| 50 min | [Arrays](https://github.com/tdyer/ruby-arrays)| Collections of data|
+| 25 min | [Hashes](https://github.com/tdyer/ruby-hashes) | Collections of data |
+
 
 
 
