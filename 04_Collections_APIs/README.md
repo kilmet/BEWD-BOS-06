@@ -1,13 +1,13 @@
 ![BEWD_Logo](../assets/BEWD_Logo.png)
 
-##Lesson 4 - Working With Collections & APIs
+##Lesson 4 - Working With Methods and Collections.
 ========
 
 
 ###Learning Objectives
 
--	Use loops, arrays and hashes to work with json returned by an API. 
--	Practice and apply all skills learned thus far.
+-	Using Ruby methods.
+-	Exploring Ruby Array and Hash each, map and inject methods.
 
 
 ###Schedule
@@ -15,9 +15,10 @@ Times below are an approximation
 
 | Time        | Topic| Comments |
 | ------------|:-------------|:-------------------|:-------------------|
-| 30 min | Quick Fire |This is a recap exercise that will test your  knowledge of ruby and programming thus far. | 
-| 60 min | APIs | A practical exmaple of loops and collections using the reddit api. |
-| 90 min | Lab Time | Your turn! You will be working with API data. |
+| 45 min | [Ruby Methods](https://github.com/tdyer/ruby-methods) | Learn to use method to functionally decompose programming tasks and logic.
+| 60 min | [Ruby Collection methods, Enumerable]() | each, map, reduce/inject, all, any, methods. |
+| 20 min | [Ruby Ranges]() | |
+| 30 min | Homework MBTA HW Review | |
 
 
 ###Homework
