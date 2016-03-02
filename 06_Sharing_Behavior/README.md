@@ -2,6 +2,7 @@
 
 ##Lesson 6 - SHARING BEHAVIOR
 
+[Ruby Objects/Classes](https://github.com/tdyer/ruby-objects)
 
 ###Learning Objectives
 
